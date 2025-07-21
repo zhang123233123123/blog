@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><% if (page.title){ %><%= page.title %> | <% } %><%= config.title %></title>
+    <meta name="description" content="<%= config.description %>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <%- css('css/style') %>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Main Container -->
+    <div class="glass-container">
+        <!-- Header -->
+        <header class="header glass-panel">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <h1 class="site-title glow-text"><%= config.title %></h1>
+                    <p class="site-subtitle"><%= config.subtitle %></p>
+                </div>
+                <ul class="nav-menu">
+                    <% for (let name in theme.menu) { %>
+                        <li class="nav-item">
+                            <a href="<%- url_for(theme.menu[name]) %>" class="nav-link glow-hover">
+                                <%= name %>
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <%- body %>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer glass-panel">
+            <div class="footer-content">
+                <p class="footer-text"><%= theme.footer.copyright %></p>
+                <div class="social-links">
+                    <% for (let name in theme.social) { %>
+                        <a href="<%= theme.social[name] %>" class="social-link glow-hover" target="_blank">
+                            <%= name %>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <%- js('js/particles-config') %>
+    <%- js('js/animations') %>
+</body>
+</html>

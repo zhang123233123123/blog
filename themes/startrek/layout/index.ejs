@@ -1,0 +1,61 @@
+<!-- Hero Section -->
+<section class="hero glass-panel">
+    <div class="hero-content">
+        <h1 class="hero-title glow-text">Welcome to the Final Frontier</h1>
+        <p class="hero-description">Exploring technology, science, and the future through a Star Trek lens</p>
+        <div class="hero-buttons">
+            <a href="/archives" class="btn btn-primary glow-hover">Explore Posts</a>
+            <a href="/about" class="btn btn-secondary glow-hover">About Mission</a>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="hologram-effect"></div>
+    </div>
+</section>
+
+<!-- Posts Section -->
+<section class="posts-section">
+    <% page.posts.each(function(post) { %>
+        <article class="post-card glass-panel hover-lift">
+            <div class="post-meta">
+                <time class="post-date glow-text"><%= date(post.date, 'MMM DD, YYYY') %></time>
+                <% if (post.categories && post.categories.length) { %>
+                    <span class="post-category">
+                        <%= post.categories.data[0].name %>
+                    </span>
+                <% } %>
+            </div>
+            <h2 class="post-title">
+                <a href="<%- url_for(post.path) %>" class="post-link glow-hover">
+                    <%= post.title %>
+                </a>
+            </h2>
+            <div class="post-excerpt">
+                <%= truncate(strip_html(post.excerpt || post.content), 150) %>
+            </div>
+            <div class="post-footer">
+                <a href="<%- url_for(post.path) %>" class="read-more glow-hover">
+                    Continue Reading →
+                </a>
+                <% if (post.tags && post.tags.length) { %>
+                    <div class="post-tags">
+                        <% post.tags.each(function(tag) { %>
+                            <span class="tag">#<%= tag.name %></span>
+                        <% }) %>
+                    </div>
+                <% } %>
+            </div>
+        </article>
+    <% }) %>
+</section>
+
+<!-- Pagination -->
+<% if (page.total > 1) { %>
+    <nav class="pagination glass-panel">
+        <%- paginator({
+            prev_text: '← Previous',
+            next_text: 'Next →',
+            class: 'page-nav'
+        }) %>
+    </nav>
+<% } %>

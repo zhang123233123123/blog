@@ -1,0 +1,41 @@
+<article class="post glass-panel">
+    <header class="post-header">
+        <div class="post-meta">
+            <time class="post-date glow-text"><%= date(page.date, 'MMMM DD, YYYY') %></time>
+            <% if (page.categories && page.categories.length) { %>
+                <span class="post-category">
+                    Category: <%= page.categories.data[0].name %>
+                </span>
+            <% } %>
+        </div>
+        <h1 class="post-title glow-text"><%= page.title %></h1>
+        <% if (page.tags && page.tags.length) { %>
+            <div class="post-tags">
+                <% page.tags.each(function(tag) { %>
+                    <span class="tag">#<%= tag.name %></span>
+                <% }) %>
+            </div>
+        <% } %>
+    </header>
+
+    <div class="post-content">
+        <%- page.content %>
+    </div>
+
+    <footer class="post-footer glass-panel">
+        <div class="post-nav">
+            <% if (page.prev) { %>
+                <a href="<%- url_for(page.prev.path) %>" class="prev-post glow-hover">
+                    <span class="nav-label">← Previous</span>
+                    <span class="nav-title"><%= page.prev.title %></span>
+                </a>
+            <% } %>
+            <% if (page.next) { %>
+                <a href="<%- url_for(page.next.path) %>" class="next-post glow-hover">
+                    <span class="nav-label">Next →</span>
+                    <span class="nav-title"><%= page.next.title %></span>
+                </a>
+            <% } %>
+        </div>
+    </footer>
+</article>

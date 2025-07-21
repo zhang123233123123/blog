@@ -1,0 +1,30 @@
+# Star Trek Theme Configuration
+favicon: /favicon.ico
+
+# Navigation
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+
+# Sidebar
+sidebar:
+  display: post
+  position: right
+
+# Social Links
+social:
+  GitHub: https://github.com/
+  Twitter: https://twitter.com/
+  Email: mailto:contact@example.com
+
+# Footer
+footer:
+  copyright: "© 2025 Star Trek Blog. Exploring the Final Frontier."
+  
+# Custom Settings
+custom:
+  enable_particles: true
+  enable_glass_effect: true
+  primary_color: "#00d4ff"
+  secondary_color: "#ff6b35"
