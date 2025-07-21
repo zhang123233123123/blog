@@ -1,0 +1,32 @@
+<section class="archive glass-panel">
+    <header class="archive-header">
+        <h1 class="archive-title glow-text">Archives</h1>
+        <p class="archive-description">Explore the complete mission logs</p>
+    </header>
+    
+    <div class="archive-content">
+        <% var posts = page.posts || page %>
+        <% posts.each(function(post, i) { %>
+            <% var year = date(post.date, 'YYYY') %>
+            <% if (i == 0 || year !== date(posts.data[i-1].date, 'YYYY')) { %>
+                <h2 class="archive-year glow-text"><%= year %></h2>
+            <% } %>
+            <article class="archive-post">
+                <time class="archive-date"><%= date(post.date, 'MM-DD') %></time>
+                <h3 class="archive-post-title">
+                    <a href="<%- url_for(post.path) %>" class="glow-hover"><%= post.title %></a>
+                </h3>
+            </article>
+        <% }) %>
+    </div>
+</section>
+
+<% if (page.total > 1) { %>
+    <nav class="pagination glass-panel">
+        <%- paginator({
+            prev_text: '← Previous',
+            next_text: 'Next →',
+            class: 'page-nav'
+        }) %>
+    </nav>
+<% } %>

@@ -1,0 +1,51 @@
+<section class="tag-page glass-panel">
+    <header class="tag-header">
+        <h1 class="tag-title glow-text">Tag: #<%= page.tag %></h1>
+        <p class="tag-description">Posts tagged with "<%= page.tag %>"</p>
+    </header>
+    
+    <div class="posts-section">
+        <% page.posts.each(function(post) { %>
+            <article class="post-card glass-panel hover-lift">
+                <div class="post-meta">
+                    <time class="post-date glow-text"><%= date(post.date, 'MMM DD, YYYY') %></time>
+                    <% if (post.categories && post.categories.length) { %>
+                        <span class="post-category">
+                            <%= post.categories.data[0].name %>
+                        </span>
+                    <% } %>
+                </div>
+                <h2 class="post-title">
+                    <a href="<%- url_for(post.path) %>" class="post-link glow-hover">
+                        <%= post.title %>
+                    </a>
+                </h2>
+                <div class="post-excerpt">
+                    <%= truncate(strip_html(post.excerpt || post.content), 150) %>
+                </div>
+                <div class="post-footer">
+                    <a href="<%- url_for(post.path) %>" class="read-more glow-hover">
+                        Continue Reading →
+                    </a>
+                    <% if (post.tags && post.tags.length) { %>
+                        <div class="post-tags">
+                            <% post.tags.each(function(tag) { %>
+                                <span class="tag">#<%= tag.name %></span>
+                            <% }) %>
+                        </div>
+                    <% } %>
+                </div>
+            </article>
+        <% }) %>
+    </div>
+</section>
+
+<% if (page.total > 1) { %>
+    <nav class="pagination glass-panel">
+        <%- paginator({
+            prev_text: '← Previous',
+            next_text: 'Next →',
+            class: 'page-nav'
+        }) %>
+    </nav>
+<% } %>
