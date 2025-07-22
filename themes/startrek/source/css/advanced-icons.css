@@ -1,0 +1,339 @@
+/* ==========================================================================
+   Advanced Icon System - Interstellar Design
+   ========================================================================== */
+
+/* 高级SVG图标基础样式 */
+.advanced-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.advanced-icon svg {
+  width: 100%;
+  height: 100%;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.advanced-icon:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* 特殊效果图标容器 */
+.icon-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-orbit);
+  background: var(--wormhole-gradient);
+  overflow: hidden;
+}
+
+.icon-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, var(--cooper-orange), transparent);
+  animation: icon-rotate var(--time-decade) linear infinite;
+  opacity: 0;
+  transition: opacity var(--time-moment) var(--ease-gravity);
+}
+
+.icon-container:hover::before {
+  opacity: 0.3;
+}
+
+@keyframes icon-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.icon-container .advanced-icon {
+  position: relative;
+  z-index: 2;
+  background: var(--bg-primary);
+  border-radius: inherit;
+  margin: 2px;
+}
+
+/* 具体图标样式 */
+.spacecraft-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.mission-control-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.quantum-network-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.data-archive-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.logo-icon-advanced {
+  width: 40px;
+  height: 40px;
+  background: var(--wormhole-gradient);
+  border-radius: var(--radius-orbit);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-gravity);
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-icon-advanced::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, var(--star-white), transparent);
+  animation: logo-spin var(--time-century) linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes logo-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.logo-icon-advanced svg {
+  position: relative;
+  z-index: 2;
+  color: var(--star-white);
+}
+
+/* 社交媒体图标增强 */
+.social-icon-enhanced {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-organism);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+  overflow: hidden;
+}
+
+.social-icon-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--cooper-orange), transparent);
+  transition: left var(--time-second) var(--ease-time-dilation);
+  opacity: 0;
+}
+
+.social-icon-enhanced:hover::before {
+  left: 100%;
+  opacity: 0.6;
+}
+
+.social-icon-enhanced:hover {
+  background: rgba(233, 69, 96, 0.1);
+  color: var(--cooper-orange);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-stellar);
+}
+
+/* 导航图标 */
+.nav-icon-enhanced {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.nav-icon-enhanced svg {
+  width: 100%;
+  height: 100%;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+/* 主题切换图标特殊效果 */
+.theme-toggle-enhanced {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-organism);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+  overflow: hidden;
+}
+
+.theme-toggle-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--golden-hour), transparent 70%);
+  transition: all var(--time-second) var(--ease-wormhole);
+  border-radius: 50%;
+}
+
+.theme-toggle-enhanced:hover::before {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.1;
+}
+
+.theme-toggle-enhanced:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-gravity);
+}
+
+/* 语言切换图标 */
+.language-toggle-enhanced {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-photon);
+  padding: var(--space-atom) var(--space-molecule);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-organism);
+  cursor: pointer;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+  overflow: hidden;
+}
+
+.language-toggle-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--warm-amber), transparent);
+  transition: left var(--time-second) var(--ease-slingshot);
+  opacity: 0;
+}
+
+.language-toggle-enhanced:hover::before {
+  left: 100%;
+  opacity: 0.3;
+}
+
+.language-toggle-enhanced:hover {
+  background: rgba(243, 156, 18, 0.1);
+  color: var(--golden-hour);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-light);
+}
+
+/* 按钮图标增强 */
+.btn-icon-enhanced {
+  position: relative;
+  margin-left: var(--space-photon);
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.btn:hover .btn-icon-enhanced {
+  transform: translateX(2px) scale(1.1);
+}
+
+/* 文章卡片图标 */
+.post-icon-enhanced {
+  width: 100%;
+  height: 200px;
+  background: var(--time-dilation);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.post-icon-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--horizon-gradient);
+  opacity: 0.6;
+}
+
+.post-icon-enhanced .advanced-icon {
+  position: relative;
+  z-index: 2;
+  color: var(--star-white);
+  width: 64px;
+  height: 64px;
+}
+
+/* 特效：粒子动画背景 */
+.icon-particle-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--time-second) var(--ease-time-dilation);
+}
+
+.icon-container:hover .icon-particle-bg {
+  opacity: 0.3;
+}
+
+.icon-particle-bg::before,
+.icon-particle-bg::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--star-white);
+  border-radius: 50%;
+  animation: particle-float var(--time-decade) ease-in-out infinite;
+}
+
+.icon-particle-bg::before {
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.icon-particle-bg::after {
+  top: 70%;
+  left: 80%;
+  animation-delay: var(--time-year);
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { transform: translateY(-10px) scale(1.5); opacity: 1; }
+}

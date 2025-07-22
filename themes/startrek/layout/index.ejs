@@ -6,39 +6,52 @@
     
     <div class="hero-content">
         <div class="hero-title">
-            <span class="title-line">Journey Through</span>
-            <span class="title-line gradient-text">The Digital Cosmos</span>
+            <span class="title-line" data-i18n="hero.title.line1">Journey Through</span>
+            <span class="title-line gradient-text" data-i18n="hero.title.line2">The Digital Cosmos</span>
         </div>
         
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
             Exploring the infinite possibilities of technology, beyond the event horizon of imagination
         </p>
         
         <div class="hero-actions">
             <a href="<%- url_for('/archives') %>" class="btn btn-primary btn-lg">
-                <span>Begin Transmission</span>
-                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7,7 17,7 17,17"></polyline>
-                </svg>
+                <span data-i18n="hero.btn.primary">Begin Transmission</span>
+                <div class="btn-icon-enhanced">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                        <path d="M2 2l7.586 7.586"/>
+                        <circle cx="11" cy="11" r="2"/>
+                    </svg>
+                </div>
             </a>
             <a href="<%- url_for('/about') %>" class="btn btn-secondary btn-lg">
-                <span>Mission Brief</span>
+                <span data-i18n="hero.btn.secondary">Mission Brief</span>
+                <div class="btn-icon-enhanced">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
+                </div>
             </a>
         </div>
         
         <div class="hero-stats">
             <div class="stat">
                 <span class="stat-number">∞</span>
-                <span class="stat-label">Dimensions</span>
+                <span class="stat-label" data-i18n="hero.stats.dimensions">Dimensions</span>
             </div>
             <div class="stat">
                 <span class="stat-number">42</span>
-                <span class="stat-label">Light Years</span>
+                <span class="stat-label" data-i18n="hero.stats.lightyears">Light Years</span>
             </div>
             <div class="stat">
                 <span class="stat-number">2001</span>
-                <span class="stat-label">Odyssey</span>
+                <span class="stat-label" data-i18n="hero.stats.odyssey">Odyssey</span>
             </div>
         </div>
     </div>
@@ -48,62 +61,114 @@
 <section class="features-section">
     <div class="features-container">
         <div class="features-header">
-            <h2 class="section-title">Mission Objectives</h2>
-            <p class="section-subtitle">
+            <h2 class="section-title" data-i18n="features.title">Mission Objectives</h2>
+            <p class="section-subtitle" data-i18n="features.subtitle">
                 Advanced technological solutions for interstellar exploration
             </p>
         </div>
         
         <div class="features-grid">
-            <!-- Mobile Apps -->
+            <!-- Spacecraft Control -->
             <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3 class="feature-title">Spacecraft Control</h3>
-                <p class="feature-description">
+                <div class="feature-icon">
+                    <div class="icon-container spacecraft-icon">
+                        <div class="advanced-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9l-6.91.74L12 16l-3.09-6.26L2 9l6.91-.74L12 2z"/>
+                                <path d="M5 12l-3 6h4l-1-6"/>
+                                <path d="M19 12l3 6h-4l1-6"/>
+                                <path d="M5.5 5l4.5 7h4L9.5 5"/>
+                                <path d="M18.5 5L14 12h-4l4.5-7"/>
+                            </svg>
+                        </div>
+                        <div class="icon-particle-bg"></div>
+                    </div>
+                </div>
+                <h3 class="feature-title" data-i18n="features.spacecraft.title">Spacecraft Control</h3>
+                <p class="feature-description" data-i18n="features.spacecraft.desc">
                     Advanced mobile interfaces for interstellar navigation and communication systems.
                 </p>
-                <div class="feature-meta">
-                    <span>iOS • Android • Quantum OS</span>
-                    <span>• 12 Modules</span>
+                <div class="feature-meta" data-i18n="features.spacecraft.meta">
+                    iOS • Android • Quantum OS • 12 Modules
                 </div>
             </div>
             
-            <!-- Desktop Software -->
+            <!-- Mission Control -->
             <div class="feature-card">
-                <div class="feature-icon">🌌</div>
-                <h3 class="feature-title">Mission Control</h3>
-                <p class="feature-description">
+                <div class="feature-icon">
+                    <div class="icon-container mission-control-icon">
+                        <div class="advanced-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
+                                <path d="M2 8h20"/>
+                                <circle cx="8" cy="14" r="2"/>
+                                <path d="M14 14h6"/>
+                                <path d="M14 18h6"/>
+                                <path d="M10 14l-2 2"/>
+                                <path d="M6 14l2 2"/>
+                            </svg>
+                        </div>
+                        <div class="icon-particle-bg"></div>
+                    </div>
+                </div>
+                <h3 class="feature-title" data-i18n="features.mission.title">Mission Control</h3>
+                <p class="feature-description" data-i18n="features.mission.desc">
                     Sophisticated command centers for deep space exploration and data analysis.
                 </p>
-                <div class="feature-meta">
-                    <span>Endurance OS • TARS • CASE</span>
-                    <span>• 18 Systems</span>
+                <div class="feature-meta" data-i18n="features.mission.meta">
+                    Endurance OS • TARS • CASE • 18 Systems
                 </div>
             </div>
             
-            <!-- Web Applications -->
+            <!-- Quantum Networks -->
             <div class="feature-card">
-                <div class="feature-icon">⚛️</div>
-                <h3 class="feature-title">Quantum Networks</h3>
-                <p class="feature-description">
+                <div class="feature-icon">
+                    <div class="icon-container quantum-network-icon">
+                        <div class="advanced-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6"/>
+                                <path d="M21 12h-6m-6 0H3"/>
+                                <path d="M18.364 18.364L16.95 16.95m-9.9-9.9L5.636 5.636"/>
+                                <path d="M18.364 5.636L16.95 7.05m-9.9 9.9L5.636 18.364"/>
+                                <circle cx="12" cy="12" r="8" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <div class="icon-particle-bg"></div>
+                    </div>
+                </div>
+                <h3 class="feature-title" data-i18n="features.quantum.title">Quantum Networks</h3>
+                <p class="feature-description" data-i18n="features.quantum.desc">
                     Interdimensional web applications that transcend space-time boundaries.
                 </p>
-                <div class="feature-meta">
-                    <span>Tesseract • Wormhole • Bootstrap</span>
-                    <span>• 24 Portals</span>
+                <div class="feature-meta" data-i18n="features.quantum.meta">
+                    Tesseract • Wormhole • Bootstrap • 24 Portals
                 </div>
             </div>
             
-            <!-- Resources -->
+            <!-- Data Archives -->
             <div class="feature-card">
-                <div class="feature-icon">📡</div>
-                <h3 class="feature-title">Data Archives</h3>
-                <p class="feature-description">
+                <div class="feature-icon">
+                    <div class="icon-container data-archive-icon">
+                        <div class="advanced-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                <path d="M12 2v20"/>
+                                <circle cx="12" cy="7" r="1"/>
+                                <circle cx="12" cy="12" r="1"/>
+                                <circle cx="12" cy="17" r="1"/>
+                                <path d="M8 7h8m-8 5h8m-8 5h8" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        <div class="icon-particle-bg"></div>
+                    </div>
+                </div>
+                <h3 class="feature-title" data-i18n="features.archive.title">Data Archives</h3>
+                <p class="feature-description" data-i18n="features.archive.desc">
                     Comprehensive libraries of cosmic knowledge and interstellar communication protocols.
                 </p>
-                <div class="feature-meta">
-                    <span>Stellar Maps • Time Codes • Coordinates</span>
-                    <span>• 36 Collections</span>
+                <div class="feature-meta" data-i18n="features.archive.meta">
+                    Stellar Maps • Time Codes • Coordinates • 36 Collections
                 </div>
             </div>
         </div>
@@ -114,9 +179,9 @@
 <section class="posts-section">
     <div class="posts-container">
         <div class="posts-header">
-            <h2 class="section-title">Transmission Log</h2>
+            <h2 class="section-title" data-i18n="blog.title">Transmission Log</h2>
             <a href="<%- url_for('/archives') %>" class="view-all-link">
-                <span>All Transmissions</span>
+                <span data-i18n="blog.viewall">All Transmissions</span>
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7,7 17,7 17,17"></polyline>
@@ -187,27 +252,28 @@
 <section class="cta-section" style="padding: var(--space-24) 0; background: var(--background-secondary);">
     <div class="container">
         <div class="cta-content" style="text-align: center; max-width: 600px; margin: 0 auto;">
-            <h2 class="text-large-title" style="margin-bottom: var(--space-4);">
+            <h2 class="text-large-title" style="margin-bottom: var(--space-4);" data-i18n="cta.title">
                 Join the Mission
             </h2>
-            <p class="text-title-3 text-secondary" style="margin-bottom: var(--space-8); line-height: 1.5;">
+            <p class="text-title-3 text-secondary" style="margin-bottom: var(--space-8); line-height: 1.5;" data-i18n="cta.subtitle">
                 Receive priority transmissions about new discoveries and mission updates from across the galaxy.
             </p>
             
             <div class="newsletter-form" style="display: flex; gap: var(--space-3); max-width: 400px; margin: 0 auto;">
                 <input 
                     type="email" 
-                    placeholder="Enter communication frequency" 
+                    data-i18n="cta.input.placeholder" 
+                    placeholder="Enter communication frequency"
                     class="form-input" 
                     style="flex: 1;"
                     aria-label="Email address"
                 >
                 <button class="btn btn-primary btn-md">
-                    Establish Link
+                    <span data-i18n="cta.btn">Establish Link</span>
                 </button>
             </div>
             
-            <p class="text-footnote text-tertiary" style="margin-top: var(--space-4);">
+            <p class="text-footnote text-tertiary" style="margin-top: var(--space-4);" data-i18n="cta.privacy">
                 Secure quantum encryption. Disconnect at light speed.
             </p>
         </div>

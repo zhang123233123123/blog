@@ -54,23 +54,58 @@
             <div class="header-container">
                 <!-- Logo/Brand -->
                 <a href="<%- url_for('/') %>" class="site-logo">
-                    <div class="logo-icon">🚀</div>
+                    <div class="logo-icon-advanced">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                            <path d="M19 15L20.09 18.26L24 19L20.09 19.74L19 23L17.91 19.74L14 19L17.91 18.26L19 15Z"/>
+                            <path d="M5 6L6.09 9.26L10 10L6.09 10.74L5 14L3.91 10.74L0 10L3.91 9.26L5 6Z"/>
+                        </svg>
+                    </div>
                     <div class="logo-text">
                         <div class="site-title"><%= config.title %></div>
-                        <div class="site-subtitle">Interstellar Mission Command</div>
+                        <div class="site-subtitle" data-i18n="nav.subtitle">Interstellar Mission Command</div>
                     </div>
                 </a>
                 
                 <!-- Main Navigation -->
                 <nav class="main-nav hidden-mobile">
                     <ul class="nav-list">
-                        <% for (let name in theme.menu) { %>
-                            <li class="nav-item">
-                                <a href="<%- url_for(theme.menu[name]) %>" class="nav-link">
-                                    <%= name %>
-                                </a>
-                            </li>
-                        <% } %>
+                        <li class="nav-item">
+                            <a href="<%- url_for('/') %>" class="nav-link">
+                                <div class="nav-icon-enhanced">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                        <polyline points="9,22 9,12 15,12 15,22"/>
+                                    </svg>
+                                </div>
+                                <span data-i18n="nav.home">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<%- url_for('/archives') %>" class="nav-link">
+                                <div class="nav-icon-enhanced">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                        <polyline points="7.5,4.21 12,6.81 16.5,4.21"/>
+                                        <polyline points="7.5,19.79 7.5,14.6 3,12"/>
+                                        <polyline points="21,12 16.5,14.6 16.5,19.79"/>
+                                        <polyline points="12,22.81 12,17"/>
+                                    </svg>
+                                </div>
+                                <span data-i18n="nav.archives">Archives</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<%- url_for('/about') %>" class="nav-link">
+                                <div class="nav-icon-enhanced">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                </div>
+                                <span data-i18n="nav.about">About</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 
@@ -78,39 +113,49 @@
                 <div class="header-actions">
                     <!-- Language Switcher -->
                     <div class="language-switcher">
-                        <button class="language-btn" id="language-toggle">
+                        <button class="language-toggle-enhanced" id="language-toggle" title="Switch Language">
+                            <div class="nav-icon-enhanced">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
                             <span class="language-text">EN</span>
-                            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6,9 12,15 18,9"></polyline>
-                            </svg>
                         </button>
                     </div>
                     
                     <!-- Theme Toggle -->
-                    <button class="btn btn-icon-only btn-ghost" id="theme-toggle" aria-label="Toggle theme">
-                        <svg class="icon theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <svg class="icon theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
+                    <button class="theme-toggle-enhanced" id="theme-toggle" aria-label="Toggle theme">
+                        <div class="theme-icon-light">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        </div>
+                        <div class="theme-icon-dark">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </div>
                     </button>
                     
                     <!-- Mobile Menu Toggle -->
                     <button class="navbar-toggle hidden-desktop" id="mobile-menu-toggle" aria-label="Toggle menu">
-                        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
+                        <div class="nav-icon-enhanced">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="3" y1="6" x2="21" y2="6"/>
+                                <line x1="3" y1="12" x2="21" y2="12"/>
+                                <line x1="3" y1="18" x2="21" y2="18"/>
+                            </svg>
+                        </div>
                     </button>
                 </div>
             </div>
@@ -188,29 +233,29 @@
                     <div class="footer-section">
                         <h3 class="footer-title">Categories</h3>
                         <ul class="footer-links">
-                            <li><a href="#" class="footer-link">Spacecraft Control</a></li>
-                            <li><a href="#" class="footer-link">Mission Control</a></li>
-                            <li><a href="#" class="footer-link">Quantum Networks</a></li>
-                            <li><a href="#" class="footer-link">Data Archives</a></li>
+                            <li><a href="#" class="footer-link" data-i18n="categories.spacecraft">Spacecraft Control</a></li>
+                            <li><a href="#" class="footer-link" data-i18n="categories.mission">Mission Control</a></li>
+                            <li><a href="#" class="footer-link" data-i18n="categories.quantum">Quantum Networks</a></li>
+                            <li><a href="#" class="footer-link" data-i18n="categories.archive">Data Archives</a></li>
                         </ul>
                     </div>
                     
                     <!-- Contact -->
                     <div class="footer-section">
-                        <h3 class="footer-title">Establish Contact</h3>
-                        <p class="footer-text">Need to transmit a message across the cosmos? We're listening on all frequencies.</p>
-                        <a href="mailto:contact@example.com" class="btn btn-secondary btn-sm">
-                            Send Transmission
+                        <h3 class="footer-title" data-i18n="footer.contact.title">Establish Contact</h3>
+                        <p class="footer-text" data-i18n="footer.contact.desc">Need to transmit a message across the cosmos? We're listening on all frequencies.</p>
+                        <a href="mailto:zhanghongjian@example.com" class="btn btn-secondary btn-sm">
+                            <span data-i18n="footer.contact.btn">Send Transmission</span>
                         </a>
                     </div>
                 </div>
                 
                 <div class="footer-bottom">
                     <div class="footer-copyright">
-                        © <%= new Date().getFullYear() %> <%= config.title %>. Engineered with stardust using quantum technology.
+                        © <%= new Date().getFullYear() %> <%= config.title %>. <span data-i18n="footer.copyright">Engineered with stardust using quantum technology.</span>
                     </div>
                     <div class="footer-meta">
-                        <span class="text-tertiary">Powered by the laws of physics and human curiosity</span>
+                        <span class="text-tertiary" data-i18n="footer.powered">Powered by the laws of physics and human curiosity</span>
                     </div>
                 </div>
             </div>
@@ -291,5 +336,7 @@
     </script>
     
     <%- js('js/animations') %>
+    <%- js('js/i18n') %>
+    <%- js('js/advanced-theme') %>
 </body>
 </html>
