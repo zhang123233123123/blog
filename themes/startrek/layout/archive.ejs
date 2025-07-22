@@ -1,32 +1,740 @@
-<section class="archive glass-panel">
-    <header class="archive-header">
-        <h1 class="archive-title glow-text">Archives</h1>
-        <p class="archive-description">Explore the complete mission logs</p>
-    </header>
+<!-- Advanced Archives Page - 高级归档页面 -->
+<section class="archives-hero">
+    <div class="archives-hero-content">
+        <div class="hero-icon-container">
+            <div class="advanced-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+            </div>
+            <div class="icon-pulse-ring"></div>
+        </div>
+        
+        <h1 class="archives-title" data-i18n="archives.title">Knowledge Archives</h1>
+        <p class="archives-subtitle" data-i18n="archives.subtitle">
+            探索技术文章的时间轴 / Explore the timeline of technical articles
+        </p>
+        
+        <div class="archives-stats">
+            <div class="stat-item">
+                <span class="stat-number"><%= site.posts.length %></span>
+                <span class="stat-label" data-i18n="archives.stats.total">Total Articles</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number"><%= site.categories.length %></span>
+                <span class="stat-label" data-i18n="archives.stats.categories">Categories</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number"><%= site.tags.length %></span>
+                <span class="stat-label" data-i18n="archives.stats.tags">Tags</span>
+            </div>
+        </div>
+    </div>
     
-    <div class="archive-content">
-        <% var posts = page.posts || page %>
-        <% posts.each(function(post, i) { %>
-            <% var year = date(post.date, 'YYYY') %>
-            <% if (i == 0 || year !== date(posts.data[i-1].date, 'YYYY')) { %>
-                <h2 class="archive-year glow-text"><%= year %></h2>
-            <% } %>
-            <article class="archive-post">
-                <time class="archive-date"><%= date(post.date, 'MM-DD') %></time>
-                <h3 class="archive-post-title">
-                    <a href="<%- url_for(post.path) %>" class="glow-hover"><%= post.title %></a>
-                </h3>
-            </article>
-        <% }) %>
+    <div class="archives-background">
+        <div class="floating-particles"></div>
+        <div class="data-grid"></div>
     </div>
 </section>
 
+<!-- Archives Timeline -->
+<section class="archives-timeline">
+    <div class="container">
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <% var posts = page.posts || site.posts %>
+            <% var currentYear = null %>
+            <% var yearIndex = 0 %>
+            
+            <% posts.each(function(post, i) { %>
+                <% var year = date(post.date, 'YYYY') %>
+                <% var month = date(post.date, 'MMM') %>
+                <% var day = date(post.date, 'DD') %>
+                
+                <% if (year !== currentYear) { %>
+                    <% currentYear = year %>
+                    <% yearIndex++ %>
+                    
+                    <!-- Year Marker -->
+                    <div class="timeline-year" style="--delay: <%= yearIndex * 0.1 %>s">
+                        <div class="year-marker">
+                            <div class="year-icon">
+                                <div class="advanced-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h2 class="year-title"><%= year %></h2>
+                            <div class="year-glow"></div>
+                        </div>
+                    </div>
+                <% } %>
+                
+                <!-- Post Entry -->
+                <article class="timeline-post" data-aos="fade-up" data-aos-delay="<%= i * 50 %>">
+                    <div class="post-connector">
+                        <div class="connector-dot"></div>
+                        <div class="connector-pulse"></div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <div class="post-header">
+                            <time class="post-date">
+                                <span class="month"><%= month %></span>
+                                <span class="day"><%= day %></span>
+                            </time>
+                            
+                            <% if (post.categories && post.categories.length) { %>
+                                <div class="post-category">
+                                    <div class="category-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                            <line x1="7" y1="7" x2="7.01" y2="7"/>
+                                        </svg>
+                                    </div>
+                                    <span><%= post.categories.first().name %></span>
+                                </div>
+                            <% } %>
+                        </div>
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                            </h3>
+                            
+                            <% if (post.excerpt) { %>
+                                <p class="post-excerpt"><%- strip_html(post.excerpt) %></p>
+                            <% } %>
+                            
+                            <% if (post.tags && post.tags.length) { %>
+                                <div class="post-tags">
+                                    <% post.tags.each(function(tag) { %>
+                                        <a href="<%- url_for(tag.path) %>" class="tag">
+                                            #<%= tag.name %>
+                                        </a>
+                                    <% }) %>
+                                </div>
+                            <% } %>
+                        </div>
+                        
+                        <div class="post-footer">
+                            <a href="<%- url_for(post.path) %>" class="read-more-btn">
+                                <span data-i18n="archives.readmore">Continue Reading</span>
+                                <div class="btn-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="7" y1="17" x2="17" y2="7"/>
+                                        <polyline points="7,7 17,7 17,17"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<!-- Pagination -->
 <% if (page.total > 1) { %>
-    <nav class="pagination glass-panel">
-        <%- paginator({
-            prev_text: '← Previous',
-            next_text: 'Next →',
-            class: 'page-nav'
-        }) %>
-    </nav>
+    <section class="archives-pagination">
+        <div class="container">
+            <nav class="pagination-nav">
+                <% if (page.prev) { %>
+                    <a href="<%- url_for(page.prev_link) %>" class="pagination-btn prev-btn">
+                        <div class="btn-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"/>
+                            </svg>
+                        </div>
+                        <span data-i18n="pagination.prev">Previous Page</span>
+                    </a>
+                <% } %>
+                
+                <div class="pagination-info">
+                    <span class="current-page"><%= page.current %></span>
+                    <span class="page-separator">/</span>
+                    <span class="total-pages"><%= page.total %></span>
+                </div>
+                
+                <% if (page.next) { %>
+                    <a href="<%- url_for(page.next_link) %>" class="pagination-btn next-btn">
+                        <span data-i18n="pagination.next">Next Page</span>
+                        <div class="btn-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"/>
+                            </svg>
+                        </div>
+                    </a>
+                <% } %>
+            </nav>
+        </div>
+    </section>
 <% } %>
+
+<style>
+/* Advanced Archives Styles */
+.archives-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--space-gradient);
+    overflow: hidden;
+}
+
+.archives-hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 var(--space-organism);
+    position: relative;
+    z-index: var(--z-planet);
+}
+
+.hero-icon-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--space-building);
+}
+
+.hero-icon-container .advanced-icon {
+    width: 100px;
+    height: 100px;
+    color: var(--cooper-orange);
+    animation: float var(--time-decade) ease-in-out infinite;
+}
+
+.icon-pulse-ring {
+    position: absolute;
+    inset: -20px;
+    border: 2px solid var(--cooper-orange);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse-ring var(--time-year) ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.1; }
+}
+
+.archives-title {
+    font-family: var(--font-display);
+    font-size: var(--text-massive);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-molecule);
+    text-shadow: var(--glow-cooper);
+}
+
+.archives-subtitle {
+    font-size: var(--text-human);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-building);
+}
+
+.archives-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-city);
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-galactic);
+    font-weight: 700;
+    color: var(--cooper-orange);
+    text-shadow: var(--glow-cooper);
+}
+
+.stat-label {
+    font-size: var(--text-molecular);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.archives-background {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-subatomic);
+}
+
+.floating-particles {
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23E94560" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="30" r="1" fill="%23E94560" opacity="0.3"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/></circle><circle cx="60" cy="70" r="1" fill="%23E94560" opacity="0.4"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite"/></circle></svg>');
+    animation: particle-drift var(--time-century) linear infinite;
+}
+
+.data-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(90deg, var(--border-primary) 1px, transparent 1px),
+        linear-gradient(0deg, var(--border-primary) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    animation: grid-scan var(--time-decade) linear infinite;
+}
+
+@keyframes grid-scan {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50px); }
+}
+
+/* Timeline Styles */
+.archives-timeline {
+    padding: var(--space-city) 0;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-organism);
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent, 
+        var(--cooper-orange) 10%, 
+        var(--cooper-orange) 90%, 
+        transparent
+    );
+    transform: translateX(-50%);
+    z-index: var(--z-atomic);
+}
+
+.timeline-year {
+    position: relative;
+    margin: var(--space-city) 0;
+    animation: fade-in-up var(--time-moment) ease-out;
+    animation-delay: var(--delay);
+    animation-fill-mode: both;
+}
+
+.year-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.year-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--surface-card);
+    border: 3px solid var(--cooper-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-stellar);
+    z-index: var(--z-molecule);
+}
+
+.year-icon .advanced-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--cooper-orange);
+}
+
+.year-title {
+    font-family: var(--font-display);
+    font-size: var(--text-galactic);
+    color: var(--text-primary);
+    background: var(--surface-glass);
+    padding: var(--space-molecule) var(--space-building);
+    border-radius: var(--radius-planet);
+    border: 1px solid var(--border-primary);
+    text-shadow: var(--glow-cooper);
+    backdrop-filter: blur(20px);
+}
+
+.year-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, var(--cooper-orange), transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: pulse-glow var(--time-decade) ease-in-out infinite;
+}
+
+.timeline-post {
+    position: relative;
+    margin: var(--space-building) 0;
+    opacity: 0;
+    animation: fade-in-up var(--time-moment) ease-out forwards;
+}
+
+.timeline-post:nth-child(even) {
+    transform: translateX(-50%);
+}
+
+.timeline-post:nth-child(odd) {
+    transform: translateX(50%);
+}
+
+.post-connector {
+    position: absolute;
+    top: var(--space-building);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-molecule);
+}
+
+.connector-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--surface-card);
+    border: 3px solid var(--cooper-orange);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: var(--shadow-stellar);
+}
+
+.connector-pulse {
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--cooper-orange);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: connector-pulse var(--time-year) ease-in-out infinite;
+}
+
+@keyframes connector-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 0.2; }
+}
+
+.post-card {
+    background: var(--surface-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-planet);
+    padding: var(--space-building);
+    backdrop-filter: blur(20px);
+    transition: all var(--time-moment) var(--ease-time-dilation);
+    max-width: 400px;
+}
+
+.timeline-post:nth-child(even) .post-card {
+    margin-left: auto;
+    margin-right: var(--space-city);
+}
+
+.timeline-post:nth-child(odd) .post-card {
+    margin-left: var(--space-city);
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-blackhole);
+    border-color: var(--cooper-orange);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-organism);
+}
+
+.post-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--cooper-orange);
+    color: var(--star-white);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.post-date .month {
+    font-size: var(--text-atomic);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.post-date .day {
+    font-size: var(--text-molecular);
+}
+
+.post-category {
+    display: flex;
+    align-items: center;
+    gap: var(--space-photon);
+    background: var(--surface-card);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    font-size: var(--text-atomic);
+    color: var(--text-secondary);
+}
+
+.category-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--cooper-orange);
+}
+
+.post-title {
+    font-family: var(--font-display);
+    font-size: var(--text-human);
+    margin-bottom: var(--space-molecule);
+}
+
+.post-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--time-moment);
+}
+
+.post-title a:hover {
+    color: var(--cooper-orange);
+    text-shadow: var(--glow-cooper);
+}
+
+.post-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-organism);
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-photon);
+    margin-bottom: var(--space-organism);
+}
+
+.post-tags .tag {
+    background: var(--surface-card);
+    color: var(--text-secondary);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    font-size: var(--text-atomic);
+    text-decoration: none;
+    transition: all var(--time-moment);
+}
+
+.post-tags .tag:hover {
+    background: var(--cooper-orange);
+    color: var(--star-white);
+    transform: translateY(-2px);
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-photon);
+    color: var(--cooper-orange);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--time-moment);
+}
+
+.read-more-btn:hover {
+    transform: translateX(4px);
+}
+
+.btn-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--time-moment);
+}
+
+.read-more-btn:hover .btn-arrow {
+    transform: rotate(45deg);
+}
+
+/* Pagination */
+.archives-pagination {
+    padding: var(--space-building) 0;
+}
+
+.pagination-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-molecule);
+    padding: var(--space-organism) var(--space-building);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-planet);
+    color: var(--text-primary);
+    text-decoration: none;
+    backdrop-filter: blur(20px);
+    transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.pagination-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-stellar);
+    border-color: var(--cooper-orange);
+}
+
+.pagination-btn .btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.pagination-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-molecule);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.current-page {
+    color: var(--cooper-orange);
+    font-size: var(--text-human);
+}
+
+.page-separator {
+    color: var(--text-secondary);
+}
+
+.total-pages {
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .archives-stats {
+        gap: var(--space-building);
+    }
+    
+    .timeline-line {
+        left: var(--space-building);
+    }
+    
+    .timeline-post {
+        transform: none !important;
+        margin-left: calc(var(--space-building) * 2);
+    }
+    
+    .post-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: none;
+    }
+    
+    .year-marker {
+        margin-left: calc(var(--space-building) * 2);
+    }
+    
+    .year-icon {
+        left: calc(var(--space-building) * -1);
+    }
+    
+    .post-connector {
+        left: var(--space-building);
+    }
+    
+    .pagination-nav {
+        flex-direction: column;
+        gap: var(--space-organism);
+    }
+}
+</style>
+
+<script>
+// Archives page enhancements
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate timeline posts
+    const posts = document.querySelectorAll('.timeline-post');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+    
+    posts.forEach(post => {
+        observer.observe(post);
+    });
+    
+    // Add reading progress for long archives
+    const progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress';
+    progressBar.innerHTML = '<div class="progress-fill"></div>';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        const progressFill = document.querySelector('.progress-fill');
+        if (progressFill) {
+            progressFill.style.width = scrollPercent + '%';
+        }
+    });
+});
+</script>
+
+<style>
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--surface-card);
+    z-index: var(--z-universe);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cooper-orange), var(--wormhole-end));
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>

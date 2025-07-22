@@ -1,0 +1,938 @@
+<!-- Advanced File Upload Page - 高级文件上传页面 -->
+<section class="upload-hero">
+    <div class="upload-hero-content">
+        <div class="hero-icon-container">
+            <div class="advanced-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7,10 12,15 17,10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </div>
+            <div class="icon-data-stream"></div>
+        </div>
+        
+        <h1 class="upload-title" data-i18n="upload.title">File Upload Center</h1>
+        <p class="upload-subtitle" data-i18n="upload.subtitle">
+            安全的文件分享平台 / Secure file sharing platform
+        </p>
+        
+        <div class="upload-features">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <circle cx="12" cy="16" r="1"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
+                <span data-i18n="upload.feature.secure">Secure Upload</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                </div>
+                <span data-i18n="upload.feature.fast">Lightning Fast</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span data-i18n="upload.feature.multi">Multi-Format</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="upload-background">
+        <div class="data-particles"></div>
+        <div class="transmission-grid"></div>
+    </div>
+</section>
+
+<!-- Upload Interface -->
+<section class="upload-interface">
+    <div class="container">
+        <!-- Access Control -->
+        <div class="access-panel glass-luxury" id="accessPanel">
+            <div class="access-header">
+                <div class="security-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v1H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4V4a3 3 0 0 0-3-3z"/>
+                        <circle cx="12" cy="13" r="2"/>
+                        <path d="M12 15v2"/>
+                    </svg>
+                </div>
+                <h2 data-i18n="upload.access.title">Security Verification</h2>
+                <p data-i18n="upload.access.desc">Please enter the access code to continue</p>
+            </div>
+            
+            <form class="access-form" id="accessForm">
+                <div class="form-group-premium">
+                    <input 
+                        type="password" 
+                        id="accessCode" 
+                        class="form-input-premium focus-premium" 
+                        placeholder=" "
+                        maxlength="3"
+                        required
+                    >
+                    <label for="accessCode" class="form-label-premium" data-i18n="upload.access.code">Access Code</label>
+                </div>
+                
+                <div class="access-hint">
+                    <div class="hint-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <span data-i18n="upload.access.hint">Enter 3-digit verification code</span>
+                </div>
+                
+                <button type="submit" class="btn-premium">
+                    <span data-i18n="upload.access.verify">Verify Access</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <!-- Upload Zone (Hidden Initially) -->
+        <div class="upload-zone glass-luxury hidden" id="uploadZone">
+            <div class="upload-area" id="dropZone">
+                <div class="upload-icon">
+                    <div class="advanced-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="12" y1="18" x2="12" y2="12"/>
+                            <polyline points="9,15 12,12 15,15"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="upload-content">
+                    <h3 class="upload-zone-title" data-i18n="upload.zone.title">Drop files here or click to browse</h3>
+                    <p class="upload-zone-desc" data-i18n="upload.zone.desc">
+                        Support for images, documents, videos, and archives
+                    </p>
+                    
+                    <div class="file-types">
+                        <span class="file-type">PDF</span>
+                        <span class="file-type">DOC</span>
+                        <span class="file-type">IMG</span>
+                        <span class="file-type">ZIP</span>
+                        <span class="file-type">MP4</span>
+                    </div>
+                </div>
+                
+                <input type="file" id="fileInput" class="file-input" multiple>
+            </div>
+            
+            <!-- Upload Progress -->
+            <div class="upload-progress hidden" id="uploadProgress">
+                <div class="progress-header">
+                    <span class="progress-title" data-i18n="upload.progress.title">Uploading Files</span>
+                    <span class="progress-count">0/0</span>
+                </div>
+                <div class="progress-premium">
+                    <div class="progress-fill-premium" id="progressBar"></div>
+                </div>
+                <div class="progress-details">
+                    <span class="upload-speed">0 MB/s</span>
+                    <span class="time-remaining">--:--</span>
+                </div>
+            </div>
+            
+            <!-- File List -->
+            <div class="file-list" id="fileList">
+                <div class="list-header">
+                    <h3 data-i18n="upload.files.title">Selected Files</h3>
+                    <button class="btn-clear" id="clearFiles" data-i18n="upload.files.clear">Clear All</button>
+                </div>
+                <div class="files-container" id="filesContainer">
+                    <!-- Files will be added here dynamically -->
+                </div>
+            </div>
+            
+            <!-- Upload Controls -->
+            <div class="upload-controls">
+                <button class="btn-premium" id="uploadBtn" disabled>
+                    <span data-i18n="upload.btn.upload">Start Upload</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17,8 12,3 7,8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Upload Results -->
+        <div class="upload-results hidden" id="uploadResults">
+            <div class="results-header">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20,6 9,17 4,12"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="upload.success.title">Upload Complete!</h3>
+                <p data-i18n="upload.success.desc">Your files have been uploaded successfully</p>
+            </div>
+            
+            <div class="uploaded-files" id="uploadedFiles">
+                <!-- Uploaded files will be listed here -->
+            </div>
+            
+            <div class="results-actions">
+                <button class="btn-premium" id="newUpload">
+                    <span data-i18n="upload.new">Upload More Files</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Upload Page Styles */
+.upload-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--space-gradient);
+    overflow: hidden;
+}
+
+.upload-hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 var(--space-organism);
+    position: relative;
+    z-index: var(--z-planet);
+}
+
+.hero-icon-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--space-building);
+}
+
+.hero-icon-container .advanced-icon {
+    width: 120px;
+    height: 120px;
+    color: var(--cooper-orange);
+    animation: upload-pulse var(--time-decade) ease-in-out infinite;
+}
+
+@keyframes upload-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(5deg); }
+    50% { transform: scale(1) rotate(0deg); }
+    75% { transform: scale(1.05) rotate(-5deg); }
+}
+
+.icon-data-stream {
+    position: absolute;
+    inset: -30px;
+    border: 2px dashed var(--cooper-orange);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: data-stream var(--time-year) linear infinite;
+}
+
+@keyframes data-stream {
+    0% { transform: rotate(0deg); opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { transform: rotate(360deg); opacity: 0.3; }
+}
+
+.upload-title {
+    font-family: var(--font-display);
+    font-size: var(--text-massive);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-molecule);
+    text-shadow: var(--glow-cooper);
+}
+
+.upload-subtitle {
+    font-size: var(--text-human);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-building);
+}
+
+.upload-features {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-building);
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-molecule);
+    padding: var(--space-molecule) var(--space-organism);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-planet);
+    backdrop-filter: blur(20px);
+    transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--cooper-orange);
+    box-shadow: var(--shadow-stellar);
+}
+
+.feature-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--cooper-orange);
+}
+
+.upload-background {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-subatomic);
+}
+
+.data-particles {
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="%23E94560" opacity="0.4"><animateTransform attributeName="transform" type="translate" values="0,0;10,5;0,10;-5,0;0,0" dur="8s" repeatCount="indefinite"/></circle><circle cx="90" cy="20" r="1" fill="%23E94560" opacity="0.3"><animateTransform attributeName="transform" type="translate" values="0,0;-8,3;0,-6;4,0;0,0" dur="10s" repeatCount="indefinite"/></circle></svg>');
+}
+
+.transmission-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(90deg, var(--border-primary) 1px, transparent 1px),
+        linear-gradient(0deg, var(--border-primary) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.08;
+    animation: grid-transmission var(--time-decade) linear infinite;
+}
+
+@keyframes grid-transmission {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+/* Upload Interface */
+.upload-interface {
+    padding: var(--space-city) 0;
+}
+
+.access-panel,
+.upload-zone {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-building);
+}
+
+.access-header {
+    text-align: center;
+    margin-bottom: var(--space-building);
+}
+
+.security-icon {
+    width: 80px;
+    height: 80px;
+    color: var(--cooper-orange);
+    margin: 0 auto var(--space-organism);
+    animation: security-scan var(--time-year) ease-in-out infinite;
+}
+
+@keyframes security-scan {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); filter: brightness(1.2); }
+}
+
+.access-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.access-hint {
+    display: flex;
+    align-items: center;
+    gap: var(--space-molecule);
+    color: var(--text-secondary);
+    font-size: var(--text-molecular);
+    margin-bottom: var(--space-building);
+    justify-content: center;
+}
+
+.hint-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Upload Zone */
+.upload-area {
+    border: 2px dashed var(--border-primary);
+    border-radius: var(--radius-luxury);
+    padding: var(--space-4xl);
+    text-align: center;
+    transition: all var(--time-moment) var(--ease-time-dilation);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.upload-area.dragover {
+    border-color: var(--cooper-orange);
+    background: rgba(233, 69, 96, 0.05);
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    width: 80px;
+    height: 80px;
+    color: var(--cooper-orange);
+    margin: 0 auto var(--space-building);
+    animation: upload-bounce var(--time-year) ease-in-out infinite;
+}
+
+@keyframes upload-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.upload-zone-title {
+    font-family: var(--font-display);
+    font-size: var(--text-stellar);
+    color: var(--text-primary);
+    margin-bottom: var(--space-molecule);
+}
+
+.upload-zone-desc {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-building);
+}
+
+.file-types {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-molecule);
+    flex-wrap: wrap;
+}
+
+.file-type {
+    background: var(--surface-card);
+    color: var(--text-secondary);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    font-size: var(--text-atomic);
+    font-weight: 600;
+}
+
+.file-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Upload Progress */
+.upload-progress {
+    margin-top: var(--space-building);
+    padding: var(--space-building);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-premium);
+    backdrop-filter: blur(20px);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-organism);
+}
+
+.progress-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.progress-count {
+    color: var(--cooper-orange);
+    font-weight: 600;
+}
+
+.progress-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-molecule);
+    color: var(--text-secondary);
+    font-size: var(--text-molecular);
+}
+
+/* File List */
+.file-list {
+    margin-top: var(--space-building);
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-organism);
+}
+
+.list-header h3 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+}
+
+.btn-clear {
+    background: none;
+    border: 1px solid var(--border-secondary);
+    color: var(--text-secondary);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    cursor: pointer;
+    transition: all var(--time-moment);
+}
+
+.btn-clear:hover {
+    border-color: var(--cooper-orange);
+    color: var(--cooper-orange);
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: var(--space-organism);
+    background: var(--surface-card);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-planet);
+    margin-bottom: var(--space-molecule);
+    transition: all var(--time-moment);
+}
+
+.file-item:hover {
+    border-color: var(--cooper-orange);
+    transform: translateX(4px);
+}
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--cooper-orange);
+    color: white;
+    border-radius: var(--radius-asteroid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--space-organism);
+    font-weight: 600;
+    font-size: var(--text-atomic);
+}
+
+.file-info {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-photon);
+}
+
+.file-size {
+    color: var(--text-secondary);
+    font-size: var(--text-atomic);
+}
+
+.file-remove {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: var(--space-photon);
+    border-radius: var(--radius-asteroid);
+    transition: all var(--time-moment);
+}
+
+.file-remove:hover {
+    color: var(--cooper-orange);
+    background: rgba(233, 69, 96, 0.1);
+}
+
+/* Upload Controls */
+.upload-controls {
+    margin-top: var(--space-building);
+    text-align: center;
+}
+
+/* Upload Results */
+.upload-results {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-building);
+}
+
+.results-header {
+    margin-bottom: var(--space-building);
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    color: var(--cooper-orange);
+    margin: 0 auto var(--space-organism);
+    animation: success-pulse var(--time-year) ease-in-out infinite;
+}
+
+@keyframes success-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); filter: brightness(1.3); }
+}
+
+.uploaded-file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-organism);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-planet);
+    margin-bottom: var(--space-molecule);
+    backdrop-filter: blur(20px);
+}
+
+.uploaded-file-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-organism);
+}
+
+.download-link {
+    background: var(--cooper-orange);
+    color: white;
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    text-decoration: none;
+    font-size: var(--text-atomic);
+    font-weight: 600;
+    transition: all var(--time-moment);
+}
+
+.download-link:hover {
+    background: var(--wormhole-end);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .upload-features {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .upload-area {
+        padding: var(--space-2xl);
+    }
+    
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-molecule);
+    }
+    
+    .progress-details {
+        flex-direction: column;
+        gap: var(--space-photon);
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.error {
+    border-color: #ef4444 !important;
+    color: #ef4444 !important;
+}
+</style>
+
+<script>
+// File Upload Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const accessForm = document.getElementById('accessForm');
+    const accessPanel = document.getElementById('accessPanel');
+    const uploadZone = document.getElementById('uploadZone');
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    const filesContainer = document.getElementById('filesContainer');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const uploadProgress = document.getElementById('uploadProgress');
+    const uploadResults = document.getElementById('uploadResults');
+    const clearFiles = document.getElementById('clearFiles');
+    const newUpload = document.getElementById('newUpload');
+    
+    let selectedFiles = [];
+    const correctCode = '000';
+    
+    // Access Control
+    accessForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const code = document.getElementById('accessCode').value;
+        
+        if (code === correctCode) {
+            accessPanel.style.display = 'none';
+            uploadZone.classList.remove('hidden');
+            
+            // Add success animation
+            uploadZone.style.opacity = '0';
+            uploadZone.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                uploadZone.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
+                uploadZone.style.opacity = '1';
+                uploadZone.style.transform = 'translateY(0)';
+            }, 100);
+        } else {
+            const input = document.getElementById('accessCode');
+            input.classList.add('error');
+            input.value = '';
+            input.placeholder = '访问码错误 / Invalid code';
+            
+            setTimeout(() => {
+                input.classList.remove('error');
+                input.placeholder = ' ';
+            }, 2000);
+        }
+    });
+    
+    // Drag and Drop
+    dropZone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+    
+    dropZone.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        if (!dropZone.contains(e.relatedTarget)) {
+            dropZone.classList.remove('dragover');
+        }
+    });
+    
+    dropZone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        
+        const files = Array.from(e.dataTransfer.files);
+        handleFiles(files);
+    });
+    
+    // File Input
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+        handleFiles(files);
+    });
+    
+    // Handle Files
+    function handleFiles(files) {
+        files.forEach(file => {
+            if (!selectedFiles.find(f => f.name === file.name && f.size === file.size)) {
+                selectedFiles.push(file);
+            }
+        });
+        
+        updateFileList();
+        updateUploadButton();
+    }
+    
+    // Update File List
+    function updateFileList() {
+        if (selectedFiles.length === 0) {
+            fileList.classList.add('hidden');
+            return;
+        }
+        
+        fileList.classList.remove('hidden');
+        filesContainer.innerHTML = '';
+        
+        selectedFiles.forEach((file, index) => {
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+            
+            const fileExt = file.name.split('.').pop().toUpperCase();
+            const fileSize = formatFileSize(file.size);
+            
+            fileItem.innerHTML = `
+                <div class="file-icon">${fileExt}</div>
+                <div class="file-info">
+                    <div class="file-name">${file.name}</div>
+                    <div class="file-size">${fileSize}</div>
+                </div>
+                <button class="file-remove" onclick="removeFile(${index})">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            `;
+            
+            filesContainer.appendChild(fileItem);
+        });
+    }
+    
+    // Remove File
+    window.removeFile = function(index) {
+        selectedFiles.splice(index, 1);
+        updateFileList();
+        updateUploadButton();
+    };
+    
+    // Clear All Files
+    clearFiles.addEventListener('click', function() {
+        selectedFiles = [];
+        updateFileList();
+        updateUploadButton();
+        fileInput.value = '';
+    });
+    
+    // Update Upload Button
+    function updateUploadButton() {
+        uploadBtn.disabled = selectedFiles.length === 0;
+        uploadBtn.style.opacity = selectedFiles.length === 0 ? '0.5' : '1';
+    }
+    
+    // Upload Files
+    uploadBtn.addEventListener('click', function() {
+        if (selectedFiles.length === 0) return;
+        
+        startUpload();
+    });
+    
+    // Start Upload
+    function startUpload() {
+        uploadProgress.classList.remove('hidden');
+        uploadBtn.disabled = true;
+        
+        // Simulate upload progress
+        let progress = 0;
+        const totalFiles = selectedFiles.length;
+        let completedFiles = 0;
+        
+        const interval = setInterval(() => {
+            progress += Math.random() * 10;
+            
+            if (progress >= 100) {
+                progress = 100;
+                completedFiles = totalFiles;
+                clearInterval(interval);
+                setTimeout(completeUpload, 500);
+            }
+            
+            updateProgress(Math.min(progress, 100), completedFiles, totalFiles);
+        }, 300);
+    }
+    
+    // Update Progress
+    function updateProgress(percent, completed, total) {
+        const progressBar = document.getElementById('progressBar');
+        const progressCount = document.querySelector('.progress-count');
+        const uploadSpeed = document.querySelector('.upload-speed');
+        const timeRemaining = document.querySelector('.time-remaining');
+        
+        progressBar.style.width = percent + '%';
+        progressCount.textContent = `${completed}/${total}`;
+        uploadSpeed.textContent = `${(Math.random() * 10 + 5).toFixed(1)} MB/s`;
+        
+        const remainingTime = (100 - percent) * 0.5;
+        const minutes = Math.floor(remainingTime / 60);
+        const seconds = Math.floor(remainingTime % 60);
+        timeRemaining.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+    
+    // Complete Upload
+    function completeUpload() {
+        uploadProgress.classList.add('hidden');
+        uploadZone.classList.add('hidden');
+        uploadResults.classList.remove('hidden');
+        
+        // Add uploaded files to results
+        const uploadedFiles = document.getElementById('uploadedFiles');
+        uploadedFiles.innerHTML = '';
+        
+        selectedFiles.forEach(file => {
+            const fileItem = document.createElement('div');
+            fileItem.className = 'uploaded-file-item';
+            
+            const fileId = Math.random().toString(36).substr(2, 9);
+            const downloadUrl = `#download/${fileId}`;
+            
+            fileItem.innerHTML = `
+                <div class="uploaded-file-info">
+                    <div class="file-icon">${file.name.split('.').pop().toUpperCase()}</div>
+                    <div class="file-info">
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-size">${formatFileSize(file.size)}</div>
+                    </div>
+                </div>
+                <a href="${downloadUrl}" class="download-link">Download</a>
+            `;
+            
+            uploadedFiles.appendChild(fileItem);
+        });
+        
+        // Animate results
+        uploadResults.style.opacity = '0';
+        uploadResults.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            uploadResults.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
+            uploadResults.style.opacity = '1';
+            uploadResults.style.transform = 'scale(1)';
+        }, 100);
+    }
+    
+    // New Upload
+    newUpload.addEventListener('click', function() {
+        // Reset everything
+        selectedFiles = [];
+        uploadResults.classList.add('hidden');
+        uploadZone.classList.remove('hidden');
+        updateFileList();
+        updateUploadButton();
+        fileInput.value = '';
+    });
+    
+    // Format File Size
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 B';
+        const k = 1024;
+        const sizes = ['B', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+});
+</script>

@@ -42,6 +42,7 @@ class InterstellarI18n {
         'nav.home': '主页',
         'nav.archives': '归档', 
         'nav.about': '关于',
+        'nav.upload': '上传',
         'nav.subtitle': '技术博客与开发分享',
         
         // Hero区域
@@ -105,6 +106,37 @@ class InterstellarI18n {
         'theme.dark': '夜间模式',
         'lang.switch': '切换语言',
         
+        // 归档页面
+        'archives.title': '知识档案馆',
+        'archives.subtitle': '探索技术文章的时间轴',
+        'archives.stats.total': '总文章数',
+        'archives.stats.categories': '分类数',
+        'archives.stats.tags': '标签数',
+        'archives.readmore': '继续阅读',
+        'pagination.prev': '上一页',
+        'pagination.next': '下一页',
+        
+        // 上传页面
+        'upload.title': '文件上传中心',
+        'upload.subtitle': '安全的文件分享平台',
+        'upload.feature.secure': '安全上传',
+        'upload.feature.fast': '极速传输',
+        'upload.feature.multi': '多格式支持',
+        'upload.access.title': '安全验证',
+        'upload.access.desc': '请输入访问码以继续',
+        'upload.access.code': '访问码',
+        'upload.access.hint': '请输入3位数验证码',
+        'upload.access.verify': '验证访问权限',
+        'upload.zone.title': '拖拽文件到此处或点击浏览',
+        'upload.zone.desc': '支持图片、文档、视频和压缩包',
+        'upload.progress.title': '正在上传文件',
+        'upload.files.title': '已选择文件',
+        'upload.files.clear': '清空所有',
+        'upload.btn.upload': '开始上传',
+        'upload.success.title': '上传完成！',
+        'upload.success.desc': '您的文件已成功上传',
+        'upload.new': '上传更多文件',
+        
         // 关于页面
         'about.title': '关于张洪健',
         'about.subtitle': '软件开发工程师 & 技术爱好者',
@@ -122,6 +154,7 @@ class InterstellarI18n {
         'nav.home': 'Home',
         'nav.archives': 'Archives',
         'nav.about': 'About',
+        'nav.upload': 'Upload',
         'nav.subtitle': 'Tech Blog & Development Insights',
         
         // Hero Section
@@ -184,6 +217,37 @@ class InterstellarI18n {
         'theme.light': 'Light Mode',
         'theme.dark': 'Dark Mode',
         'lang.switch': 'Switch Language',
+        
+        // Archives Page
+        'archives.title': 'Knowledge Archives',
+        'archives.subtitle': 'Explore the timeline of technical articles',
+        'archives.stats.total': 'Total Articles',
+        'archives.stats.categories': 'Categories',
+        'archives.stats.tags': 'Tags',
+        'archives.readmore': 'Continue Reading',
+        'pagination.prev': 'Previous Page',
+        'pagination.next': 'Next Page',
+        
+        // Upload Page
+        'upload.title': 'File Upload Center',
+        'upload.subtitle': 'Secure file sharing platform',
+        'upload.feature.secure': 'Secure Upload',
+        'upload.feature.fast': 'Lightning Fast',
+        'upload.feature.multi': 'Multi-Format',
+        'upload.access.title': 'Security Verification',
+        'upload.access.desc': 'Please enter the access code to continue',
+        'upload.access.code': 'Access Code',
+        'upload.access.hint': 'Enter 3-digit verification code',
+        'upload.access.verify': 'Verify Access',
+        'upload.zone.title': 'Drop files here or click to browse',
+        'upload.zone.desc': 'Support for images, documents, videos, and archives',
+        'upload.progress.title': 'Uploading Files',
+        'upload.files.title': 'Selected Files',
+        'upload.files.clear': 'Clear All',
+        'upload.btn.upload': 'Start Upload',
+        'upload.success.title': 'Upload Complete!',
+        'upload.success.desc': 'Your files have been uploaded successfully',
+        'upload.new': 'Upload More Files',
         
         // About Page
         'about.title': 'About Zhang Hongjian',
