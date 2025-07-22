@@ -1,348 +1,741 @@
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-background">
-        <div class="hero-gradient"></div>
+<!-- Ultra Premium Hero Section -->
+<section class="hero-premium">
+    <!-- Animated Background -->
+    <div class="hero-background-premium">
+        <div class="cosmic-canvas">
+            <canvas id="cosmicCanvas"></canvas>
+        </div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="particle-field">
+            <div class="particle" style="--x: 10%; --y: 20%; --delay: 0s;"></div>
+            <div class="particle" style="--x: 80%; --y: 30%; --delay: 1s;"></div>
+            <div class="particle" style="--x: 20%; --y: 70%; --delay: 2s;"></div>
+            <div class="particle" style="--x: 90%; --y: 80%; --delay: 1.5s;"></div>
+            <div class="particle" style="--x: 60%; --y: 15%; --delay: 0.5s;"></div>
+            <div class="particle" style="--x: 30%; --y: 85%; --delay: 2.5s;"></div>
+        </div>
     </div>
     
-    <div class="hero-content">
-        <div class="hero-title">
-            <span class="title-line" data-i18n="hero.title.line1">Zhang Hongjian's</span>
-            <span class="title-line gradient-text" data-i18n="hero.title.line2">Tech Universe</span>
+    <!-- Hero Content -->
+    <div class="hero-content-premium">
+        <!-- Avatar Section -->
+        <div class="hero-avatar">
+            <div class="avatar-container-premium">
+                <div class="avatar-ring-outer"></div>
+                <div class="avatar-ring-middle"></div>
+                <div class="avatar-ring-inner"></div>
+                <div class="avatar-image-premium">
+                    <div class="avatar-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 2V4H9V9H21ZM21 10H9V12H21V10ZM12 13C8.7 13 6 15.7 6 19V20H18V19C18 15.7 15.3 13 12 13Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="avatar-pulse"></div>
+            </div>
         </div>
         
-        <p class="hero-subtitle" data-i18n="hero.subtitle">
-            Exploring innovative technologies and sharing development insights with the world
-        </p>
+        <!-- Title Section -->
+        <div class="hero-title-premium">
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-word" data-i18n="hero.title.line1">Zhang Hongjian's</span>
+                    <span class="title-word gradient-premium" data-i18n="hero.title.line2">Tech Universe</span>
+                </h1>
+                <div class="title-underline"></div>
+            </div>
+        </div>
         
-        <div class="hero-actions">
-            <a href="<%- url_for('/archives') %>" class="btn btn-primary btn-lg">
-                <span data-i18n="hero.btn.primary">Explore Articles</span>
-                <div class="btn-icon-enhanced">
+        <!-- Subtitle with typewriter effect -->
+        <div class="hero-subtitle-premium">
+            <p class="typewriter" id="typewriterText"></p>
+        </div>
+        
+        <!-- Enhanced Stats -->
+        <div class="hero-stats-premium">
+            <div class="stat-card glass-ultra">
+                <div class="stat-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-                        <path d="M2 2l7.586 7.586"/>
-                        <circle cx="11" cy="11" r="2"/>
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
                     </svg>
                 </div>
+                <div class="stat-content">
+                    <span class="stat-number" data-count="5">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label" data-i18n="hero.stats.years">Years Experience</span>
+                </div>
+            </div>
+            
+            <div class="stat-card glass-ultra">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" data-count="50">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label" data-i18n="hero.stats.projects">Projects</span>
+                </div>
+            </div>
+            
+            <div class="stat-card glass-ultra">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label" data-i18n="hero.stats.tech">Tech Stacks</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Premium Action Buttons -->
+        <div class="hero-actions-premium">
+            <a href="<%- url_for('/archives') %>" class="btn-premium btn-primary-premium">
+                <span class="btn-text" data-i18n="hero.btn.primary">Explore Articles</span>
+                <div class="btn-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <div class="btn-shine"></div>
             </a>
-            <a href="<%- url_for('/about') %>" class="btn btn-secondary btn-lg">
-                <span data-i18n="hero.btn.secondary">About Me</span>
-                <div class="btn-icon-enhanced">
+            
+            <a href="<%- url_for('/about') %>" class="btn-premium btn-secondary-premium">
+                <span class="btn-text" data-i18n="hero.btn.secondary">About Me</span>
+                <div class="btn-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14,2 14,8 20,8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10,9 9,9 8,9"/>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
                     </svg>
                 </div>
+                <div class="btn-shine"></div>
             </a>
         </div>
         
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-number">5+</span>
-                <span class="stat-label" data-i18n="hero.stats.years">Years Experience</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">50+</span>
-                <span class="stat-label" data-i18n="hero.stats.projects">Projects</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">10+</span>
-                <span class="stat-label" data-i18n="hero.stats.tech">Tech Stacks</span>
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-text" data-i18n="hero.scroll">Scroll to explore</div>
+            <div class="scroll-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"/>
+                </svg>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features Section -->
-<section class="features-section">
-    <div class="features-container">
-        <div class="features-header">
-            <h2 class="section-title" data-i18n="features.title">What I Do</h2>
-            <p class="section-subtitle" data-i18n="features.subtitle">
-                Professional software development and innovative technology solutions
+<!-- Expertise Showcase -->
+<section class="expertise-section">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header-premium">
+            <div class="header-badge">
+                <span data-i18n="expertise.badge">Expertise</span>
+            </div>
+            <h2 class="section-title-premium" data-i18n="expertise.title">What I Specialize In</h2>
+            <p class="section-description-premium" data-i18n="expertise.desc">
+                Crafting digital experiences with cutting-edge technologies and innovative solutions
             </p>
         </div>
         
-        <div class="features-grid">
-            <!-- Spacecraft Control -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <div class="icon-container spacecraft-icon">
-                        <div class="advanced-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2l3.09 6.26L22 9l-6.91.74L12 16l-3.09-6.26L2 9l6.91-.74L12 2z"/>
-                                <path d="M5 12l-3 6h4l-1-6"/>
-                                <path d="M19 12l3 6h-4l1-6"/>
-                                <path d="M5.5 5l4.5 7h4L9.5 5"/>
-                                <path d="M18.5 5L14 12h-4l4.5-7"/>
-                            </svg>
+        <!-- Expertise Grid -->
+        <div class="expertise-grid">
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="expertise-header">
+                    <div class="expertise-icon mobile-dev">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <div class="expertise-meta">
+                        <h3 class="expertise-title" data-i18n="expertise.mobile.title">Mobile Development</h3>
+                        <div class="expertise-level">
+                            <div class="level-bar">
+                                <div class="level-fill" style="--level: 95%;"></div>
+                            </div>
+                            <span class="level-text">95%</span>
                         </div>
-                        <div class="icon-particle-bg"></div>
                     </div>
                 </div>
-                <h3 class="feature-title" data-i18n="features.mobile.title">Mobile Development</h3>
-                <p class="feature-description" data-i18n="features.mobile.desc">
-                    Creating beautiful and performant mobile applications for iOS and Android platforms.
+                <p class="expertise-description" data-i18n="expertise.mobile.desc">
+                    Creating stunning cross-platform mobile applications with native performance
                 </p>
-                <div class="feature-meta" data-i18n="features.mobile.meta">
-                    React Native • Flutter • Swift • Kotlin
+                <div class="expertise-tech">
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Swift</span>
+                    <span class="tech-tag">Kotlin</span>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="expertise-header">
+                    <div class="expertise-icon fullstack-dev">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
+                            <path d="M2 8h20"/>
+                            <circle cx="8" cy="14" r="2"/>
+                            <path d="M14 14h6"/>
+                            <path d="M14 18h6"/>
+                        </svg>
+                    </div>
+                    <div class="expertise-meta">
+                        <h3 class="expertise-title" data-i18n="expertise.fullstack.title">Full Stack Development</h3>
+                        <div class="expertise-level">
+                            <div class="level-bar">
+                                <div class="level-fill" style="--level: 90%;"></div>
+                            </div>
+                            <span class="level-text">90%</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="expertise-description" data-i18n="expertise.fullstack.desc">
+                    End-to-end web solutions from responsive frontends to scalable backends
+                </p>
+                <div class="expertise-tech">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="expertise-header">
+                    <div class="expertise-icon cloud-dev">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                        </svg>
+                    </div>
+                    <div class="expertise-meta">
+                        <h3 class="expertise-title" data-i18n="expertise.cloud.title">Cloud & DevOps</h3>
+                        <div class="expertise-level">
+                            <div class="level-bar">
+                                <div class="level-fill" style="--level: 85%;"></div>
+                            </div>
+                            <span class="level-text">85%</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="expertise-description" data-i18n="expertise.cloud.desc">
+                    Modern cloud infrastructure and automated deployment pipelines
+                </p>
+                <div class="expertise-tech">
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Azure</span>
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">CI/CD</span>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+            
+            <div class="expertise-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="expertise-header">
+                    <div class="expertise-icon ai-dev">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            <path d="M12 2v20"/>
+                            <circle cx="12" cy="7" r="1"/>
+                            <circle cx="12" cy="12" r="1"/>
+                            <circle cx="12" cy="17" r="1"/>
+                        </svg>
+                    </div>
+                    <div class="expertise-meta">
+                        <h3 class="expertise-title" data-i18n="expertise.ai.title">AI & Data Science</h3>
+                        <div class="expertise-level">
+                            <div class="level-bar">
+                                <div class="level-fill" style="--level: 80%;"></div>
+                            </div>
+                            <span class="level-text">80%</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="expertise-description" data-i18n="expertise.ai.desc">
+                    Intelligent systems and data-driven solutions using machine learning
+                </p>
+                <div class="expertise-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Analytics</span>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Showcase -->
+<section class="projects-showcase">
+    <div class="container">
+        <div class="section-header-premium">
+            <div class="header-badge">
+                <span data-i18n="projects.badge">Portfolio</span>
+            </div>
+            <h2 class="section-title-premium" data-i18n="projects.title">Featured Projects</h2>
+            <p class="section-description-premium" data-i18n="projects.desc">
+                A collection of innovative solutions and creative implementations
+            </p>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card featured" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-tech-stack">
+                            <span>React Native</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="project-placeholder mobile-app">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <path d="M12 6h.01M8 14h8m-8 2h8"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="projects.mobile.title">Smart Mobile Platform</h3>
+                    <p class="project-description" data-i18n="projects.mobile.desc">
+                        Cross-platform mobile application with AI-powered features
+                    </p>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <span class="stat-value">50K+</span>
+                            <span class="stat-label">Users</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-value">4.8★</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Mission Control -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <div class="icon-container mission-control-icon">
-                        <div class="advanced-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
-                                <path d="M2 8h20"/>
-                                <circle cx="8" cy="14" r="2"/>
-                                <path d="M14 14h6"/>
-                                <path d="M14 18h6"/>
-                                <path d="M10 14l-2 2"/>
-                                <path d="M6 14l2 2"/>
-                            </svg>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-tech-stack">
+                            <span>React</span>
+                            <span>Python</span>
+                            <span>AWS</span>
                         </div>
-                        <div class="icon-particle-bg"></div>
+                    </div>
+                    <div class="project-placeholder web-app">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
                     </div>
                 </div>
-                <h3 class="feature-title" data-i18n="features.fullstack.title">Full Stack Development</h3>
-                <p class="feature-description" data-i18n="features.fullstack.desc">
-                    Building complete web applications from frontend user interfaces to backend services.
-                </p>
-                <div class="feature-meta" data-i18n="features.fullstack.meta">
-                    React • Node.js • Python • Docker
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="projects.web.title">Analytics Dashboard</h3>
+                    <p class="project-description" data-i18n="projects.web.desc">
+                        Real-time data visualization and business intelligence platform
+                    </p>
                 </div>
             </div>
             
-            <!-- Quantum Networks -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <div class="icon-container quantum-network-icon">
-                        <div class="advanced-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="3"/>
-                                <path d="M12 1v6m0 6v6"/>
-                                <path d="M21 12h-6m-6 0H3"/>
-                                <path d="M18.364 18.364L16.95 16.95m-9.9-9.9L5.636 5.636"/>
-                                <path d="M18.364 5.636L16.95 7.05m-9.9 9.9L5.636 18.364"/>
-                                <circle cx="12" cy="12" r="8" opacity="0.3"/>
-                            </svg>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <div class="project-tech-stack">
+                            <span>Docker</span>
+                            <span>Kubernetes</span>
+                            <span>Jenkins</span>
                         </div>
-                        <div class="icon-particle-bg"></div>
+                    </div>
+                    <div class="project-placeholder devops">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
                     </div>
                 </div>
-                <h3 class="feature-title" data-i18n="features.cloud.title">Cloud & DevOps</h3>
-                <p class="feature-description" data-i18n="features.cloud.desc">
-                    Scalable cloud infrastructure and automated deployment pipelines for modern applications.
-                </p>
-                <div class="feature-meta" data-i18n="features.cloud.meta">
-                    AWS • Azure • Kubernetes • CI/CD
-                </div>
-            </div>
-            
-            <!-- Data Archives -->
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <div class="icon-container data-archive-icon">
-                        <div class="advanced-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                <path d="M12 2v20"/>
-                                <circle cx="12" cy="7" r="1"/>
-                                <circle cx="12" cy="12" r="1"/>
-                                <circle cx="12" cy="17" r="1"/>
-                                <path d="M8 7h8m-8 5h8m-8 5h8" opacity="0.5"/>
-                            </svg>
-                        </div>
-                        <div class="icon-particle-bg"></div>
-                    </div>
-                </div>
-                <h3 class="feature-title" data-i18n="features.ai.title">AI & Data Science</h3>
-                <p class="feature-description" data-i18n="features.ai.desc">
-                    Leveraging artificial intelligence and machine learning to solve complex problems.
-                </p>
-                <div class="feature-meta" data-i18n="features.ai.meta">
-                    Python • TensorFlow • PyTorch • Data Analytics
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="projects.devops.title">CI/CD Pipeline</h3>
+                    <p class="project-description" data-i18n="projects.devops.desc">
+                        Automated deployment and monitoring infrastructure
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Latest Posts Section -->
-<section class="posts-section">
-    <div class="posts-container">
-        <div class="posts-header">
-            <h2 class="section-title" data-i18n="blog.title">Latest Articles</h2>
-            <a href="<%- url_for('/archives') %>" class="view-all-link">
-                <span data-i18n="blog.viewall">View All Posts</span>
-                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7,7 17,7 17,17"></polyline>
-                </svg>
-            </a>
+<!-- Latest Blog Posts -->
+<section class="blog-section-premium">
+    <div class="container">
+        <div class="section-header-premium">
+            <div class="header-badge">
+                <span data-i18n="blog.badge">Knowledge</span>
+            </div>
+            <h2 class="section-title-premium" data-i18n="blog.title">Latest Insights</h2>
+            <p class="section-description-premium" data-i18n="blog.desc">
+                Sharing thoughts, discoveries, and technical insights from my development journey
+            </p>
         </div>
         
-        <div class="posts-grid">
-            <% site.posts.sort('date', -1).limit(6).each(function(post) { %>
-                <article class="post-card">
-                    <% if (post.image) { %>
-                        <img src="<%= post.image %>" alt="<%= post.title %>" class="post-image">
-                    <% } else { %>
-                        <div class="post-image" style="background: linear-gradient(135deg, var(--color-blue), var(--color-purple)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
-                            📝
+        <div class="blog-grid">
+            <% site.posts.sort('date', -1).limit(3).each(function(post, index) { %>
+                <article class="blog-card-premium" data-aos="fade-up" data-aos-delay="<%= (index + 1) * 100 %>">
+                    <div class="blog-image">
+                        <% if (post.image) { %>
+                            <img src="<%= post.image %>" alt="<%= post.title %>">
+                        <% } else { %>
+                            <div class="blog-placeholder">
+                                <div class="placeholder-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14,2 14,8 20,8"/>
+                                        <line x1="16" y1="13" x2="8" y2="13"/>
+                                        <line x1="16" y1="17" x2="8" y2="17"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        <% } %>
+                        <div class="blog-overlay">
+                            <div class="read-time">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                                <span>5 min read</span>
+                            </div>
                         </div>
-                    <% } %>
+                    </div>
                     
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <time class="post-date" datetime="<%= date(post.date, 'YYYY-MM-DD') %>">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <time datetime="<%= date(post.date, 'YYYY-MM-DD') %>">
                                 <%= date(post.date, 'MMM DD, YYYY') %>
                             </time>
                             <% if (post.categories && post.categories.length) { %>
-                                <span class="post-category">
+                                <span class="blog-category">
                                     <%= post.categories.data[0].name %>
                                 </span>
                             <% } %>
                         </div>
                         
-                        <h3 class="post-title">
-                            <a href="<%- url_for(post.path) %>" class="post-link">
-                                <%= post.title %>
-                            </a>
+                        <h3 class="blog-title">
+                            <a href="<%- url_for(post.path) %>"><%= post.title %></a>
                         </h3>
                         
-                        <p class="post-excerpt">
-                            <%= truncate(strip_html(post.excerpt || post.content), 120) %>
+                        <p class="blog-excerpt">
+                            <%= truncate(strip_html(post.excerpt || post.content), 150) %>
                         </p>
                         
-                        <div class="post-footer">
-                            <a href="<%- url_for(post.path) %>" class="read-more">
-                                <span>Continue Reading</span>
-                                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7,7 17,7 17,17"></polyline>
+                        <div class="blog-footer">
+                            <a href="<%- url_for(post.path) %>" class="read-more-premium">
+                                <span data-i18n="blog.readmore">Continue Reading</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="7" y1="17" x2="17" y2="7"/>
+                                    <polyline points="7,7 17,7 17,17"/>
                                 </svg>
                             </a>
                             
                             <% if (post.tags && post.tags.length) { %>
-                                <div class="post-tags">
-                                    <% post.tags.limit(3).each(function(tag) { %>
-                                        <a href="<%- url_for(tag.path) %>" class="tag">
-                                            #<%= tag.name %>
-                                        </a>
+                                <div class="blog-tags">
+                                    <% post.tags.limit(2).each(function(tag) { %>
+                                        <span class="tag-premium">#<%= tag.name %></span>
                                     <% }) %>
                                 </div>
                             <% } %>
                         </div>
                     </div>
+                    <div class="card-glow"></div>
                 </article>
             <% }) %>
+        </div>
+        
+        <div class="blog-cta">
+            <a href="<%- url_for('/archives') %>" class="btn-premium btn-outline-premium">
+                <span data-i18n="blog.viewall">View All Articles</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
 
-<!-- Newsletter/CTA Section -->
-<section class="cta-section" style="padding: var(--space-24) 0; background: var(--background-secondary);">
+<!-- Contact CTA Section -->
+<section class="contact-cta-section">
     <div class="container">
-        <div class="cta-content" style="text-align: center; max-width: 600px; margin: 0 auto;">
-            <h2 class="text-large-title" style="margin-bottom: var(--space-4);" data-i18n="cta.title">
-                Stay Connected
-            </h2>
-            <p class="text-title-3 text-secondary" style="margin-bottom: var(--space-8); line-height: 1.5;" data-i18n="cta.subtitle">
-                Subscribe to get updates about new articles, projects, and insights from my development journey.
-            </p>
-            
-            <div class="newsletter-form" style="display: flex; gap: var(--space-3); max-width: 400px; margin: 0 auto;">
-                <input 
-                    type="email" 
-                    data-i18n="cta.input.placeholder" 
-                    placeholder="Enter your email address"
-                    class="form-input" 
-                    style="flex: 1;"
-                    aria-label="Email address"
-                >
-                <button class="btn btn-primary btn-md">
-                    <span data-i18n="cta.btn">Subscribe</span>
-                </button>
+        <div class="cta-container glass-luxury">
+            <div class="cta-content">
+                <div class="cta-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
+                <h2 class="cta-title" data-i18n="cta.title">Let's Build Something Amazing</h2>
+                <p class="cta-description" data-i18n="cta.subtitle">
+                    Ready to bring your ideas to life? Let's collaborate on your next project
+                </p>
+                <div class="cta-actions">
+                    <a href="mailto:zhanghongjian@example.com" class="btn-premium btn-primary-premium">
+                        <span data-i18n="cta.contact">Get In Touch</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7,7 17,7 17,17"/>
+                        </svg>
+                    </a>
+                    <a href="<%- url_for('/upload') %>" class="btn-premium btn-secondary-premium">
+                        <span data-i18n="cta.share">Share Files</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            
-            <p class="text-footnote text-tertiary" style="margin-top: var(--space-4);" data-i18n="cta.privacy">
-                No spam, unsubscribe anytime. Privacy respected.
-            </p>
+            <div class="cta-decoration">
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
+                <div class="floating-element element-3"></div>
+            </div>
         </div>
     </div>
 </section>
 
 <script>
-// Add scroll-triggered animations
+// Enhanced Homepage Interactions
 document.addEventListener('DOMContentLoaded', function() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -10% 0px'
-    };
+    initCosmicCanvas();
+    initTypewriter();
+    initCounters();
+    initScrollEffects();
+    initParallax();
+    initAOS();
+});
+
+// Cosmic Canvas Animation
+function initCosmicCanvas() {
+    const canvas = document.getElementById('cosmicCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    const stars = [];
+    const numStars = 200;
+    
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    
+    function createStars() {
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: Math.random() * 2,
+                speed: Math.random() * 0.5 + 0.1,
+                opacity: Math.random()
+            });
+        }
+    }
+    
+    function animateStars() {
+        ctx.clearRect(0, 0, width, height);
+        
+        stars.forEach(star => {
+            star.y += star.speed;
+            if (star.y > height) {
+                star.y = 0;
+                star.x = Math.random() * width;
+            }
+            
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(233, 69, 96, ${star.opacity})`;
+            ctx.fill();
+        });
+        
+        requestAnimationFrame(animateStars);
+    }
+    
+    resize();
+    createStars();
+    animateStars();
+    
+    window.addEventListener('resize', () => {
+        resize();
+        stars.length = 0;
+        createStars();
+    });
+}
+
+// Typewriter Effect
+function initTypewriter() {
+    const typewriter = document.getElementById('typewriterText');
+    if (!typewriter) return;
+    
+    const texts = [
+        'Exploring innovative technologies and sharing development insights...',
+        '探索创新技术，分享开发心得...',
+        'Building the future, one line of code at a time...',
+        '用代码构建未来，用技术改变世界...'
+    ];
+    
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function typeText() {
+        const currentText = texts[textIndex];
+        
+        if (isDeleting) {
+            typewriter.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typewriter.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        if (!isDeleting && charIndex === currentText.length) {
+            setTimeout(() => isDeleting = true, 2000);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+        }
+        
+        const speed = isDeleting ? 50 : 100;
+        setTimeout(typeText, speed);
+    }
+    
+    typeText();
+}
+
+// Counter Animation
+function initCounters() {
+    const counters = document.querySelectorAll('.stat-number[data-count]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                const target = entry.target;
+                const count = parseInt(target.getAttribute('data-count'));
+                let current = 0;
+                
+                const increment = count / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= count) {
+                        current = count;
+                        clearInterval(timer);
+                        target.classList.add('counted');
+                    }
+                    target.textContent = Math.floor(current);
+                }, 40);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+}
+
+// Scroll Effects
+function initScrollEffects() {
+    let ticking = false;
+    
+    function updateScrollEffects() {
+        const scrollTop = window.pageYOffset;
+        const hero = document.querySelector('.hero-premium');
+        
+        if (hero) {
+            const heroHeight = hero.offsetHeight;
+            const scrollProgress = Math.min(scrollTop / heroHeight, 1);
+            
+            // Parallax for hero content
+            const heroContent = hero.querySelector('.hero-content-premium');
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrollProgress * 50}px)`;
+                heroContent.style.opacity = 1 - scrollProgress * 0.5;
+            }
+            
+            // Parallax for background elements
+            const orbs = hero.querySelectorAll('.orb');
+            orbs.forEach((orb, index) => {
+                const speed = 0.5 + index * 0.2;
+                orb.style.transform = `translateY(${scrollProgress * speed * 100}px)`;
+            });
+        }
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollEffects);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick, { passive: true });
+}
+
+// Parallax Mouse Movement
+function initParallax() {
+    const hero = document.querySelector('.hero-premium');
+    if (!hero) return;
+    
+    hero.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+        
+        const xPos = (clientX / innerWidth) - 0.5;
+        const yPos = (clientY / innerHeight) - 0.5;
+        
+        const orbs = hero.querySelectorAll('.orb');
+        orbs.forEach((orb, index) => {
+            const speed = (index + 1) * 0.5;
+            orb.style.transform = `translate(${xPos * speed * 20}px, ${yPos * speed * 20}px)`;
+        });
+        
+        const particles = hero.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+            const speed = (index + 1) * 0.3;
+            particle.style.transform = `translate(${xPos * speed * 15}px, ${yPos * speed * 15}px)`;
+        });
+    });
+}
+
+// Initialize AOS (Animate On Scroll)
+function initAOS() {
+    const elements = document.querySelectorAll('[data-aos]');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in-up');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe feature cards and post cards
-    document.querySelectorAll('.feature-card, .post-card').forEach(card => {
-        observer.observe(card);
-    });
-    
-    // Add stagger effect to feature cards
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-    });
-    
-    // Add stagger effect to post cards
-    const postCards = document.querySelectorAll('.post-card');
-    postCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-    });
-    
-    // Newsletter form handling
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        const emailInput = newsletterForm.querySelector('input[type="email"]');
-        const subscribeBtn = newsletterForm.querySelector('button');
-        
-        subscribeBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            if (emailInput.value && emailInput.validity.valid) {
-                // Add success state
-                subscribeBtn.textContent = 'Subscribed!';
-                subscribeBtn.disabled = true;
-                emailInput.value = '';
-                
-                // Reset after 3 seconds
-                setTimeout(() => {
-                    subscribeBtn.textContent = 'Subscribe';
-                    subscribeBtn.disabled = false;
-                }, 3000);
-            } else {
-                // Add error state
-                emailInput.focus();
-                emailInput.style.borderColor = 'var(--color-red)';
+                const element = entry.target;
+                const animation = element.getAttribute('data-aos');
+                const delay = element.getAttribute('data-aos-delay') || 0;
                 
                 setTimeout(() => {
-                    emailInput.style.borderColor = '';
-                }, 2000);
+                    element.classList.add('aos-animate');
+                }, delay);
             }
         });
-    }
-});
+    }, { threshold: 0.1 });
+    
+    elements.forEach(el => observer.observe(el));
+}
 </script>

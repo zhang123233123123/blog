@@ -54,6 +54,43 @@ class InterstellarI18n {
         'hero.stats.years': '年经验',
         'hero.stats.projects': '项目经验',
         'hero.stats.tech': '技术栈',
+        'hero.scroll': '向下滚动探索',
+        
+        // 专业技能区域
+        'expertise.badge': '专业技能',
+        'expertise.title': '我的专业领域',
+        'expertise.desc': '使用前沿技术和创新解决方案，打造数字化体验',
+        'expertise.mobile.title': '移动开发',
+        'expertise.mobile.desc': '创建令人惊艳的跨平台移动应用，具备原生性能',
+        'expertise.fullstack.title': '全栈开发',
+        'expertise.fullstack.desc': '从响应式前端到可扩展后端的端到端Web解决方案',
+        'expertise.cloud.title': '云计算DevOps',
+        'expertise.cloud.desc': '现代云基础设施和自动化部署流水线',
+        'expertise.ai.title': 'AI数据科学',
+        'expertise.ai.desc': '使用机器学习构建智能系统和数据驱动的解决方案',
+        
+        // 项目展示区域
+        'projects.badge': '作品集',
+        'projects.title': '精选项目',
+        'projects.desc': '创新解决方案与创意实现的集合',
+        'projects.mobile.title': '智能移动平台',
+        'projects.mobile.desc': '具有AI驱动功能的跨平台移动应用',
+        'projects.web.title': '数据分析仪表板',
+        'projects.web.desc': '实时数据可视化和商业智能平台',
+        'projects.devops.title': 'CI/CD流水线',
+        'projects.devops.desc': '自动化部署和监控基础设施',
+        
+        // 博客区域
+        'blog.badge': '知识分享',
+        'blog.title': '最新见解',
+        'blog.desc': '分享我在开发旅程中的思考、发现和技术见解',
+        'blog.readmore': '继续阅读',
+        
+        // CTA区域
+        'cta.title': '让我们构建些令人惊艳的东西',
+        'cta.subtitle': '准备好将你的想法变为现实吗？让我们在你的下一个项目上合作',
+        'cta.contact': '联系我',
+        'cta.share': '分享文件',
         
         // 特性区域
         'features.title': '我的专长',
@@ -166,6 +203,43 @@ class InterstellarI18n {
         'hero.stats.years': 'Years Experience',
         'hero.stats.projects': 'Projects',
         'hero.stats.tech': 'Tech Stacks',
+        'hero.scroll': 'Scroll to explore',
+        
+        // Expertise Section
+        'expertise.badge': 'Expertise',
+        'expertise.title': 'What I Specialize In',
+        'expertise.desc': 'Crafting digital experiences with cutting-edge technologies and innovative solutions',
+        'expertise.mobile.title': 'Mobile Development',
+        'expertise.mobile.desc': 'Creating stunning cross-platform mobile applications with native performance',
+        'expertise.fullstack.title': 'Full Stack Development',
+        'expertise.fullstack.desc': 'End-to-end web solutions from responsive frontends to scalable backends',
+        'expertise.cloud.title': 'Cloud & DevOps',
+        'expertise.cloud.desc': 'Modern cloud infrastructure and automated deployment pipelines',
+        'expertise.ai.title': 'AI & Data Science',
+        'expertise.ai.desc': 'Intelligent systems and data-driven solutions using machine learning',
+        
+        // Projects Section
+        'projects.badge': 'Portfolio',
+        'projects.title': 'Featured Projects',
+        'projects.desc': 'A collection of innovative solutions and creative implementations',
+        'projects.mobile.title': 'Smart Mobile Platform',
+        'projects.mobile.desc': 'Cross-platform mobile application with AI-powered features',
+        'projects.web.title': 'Analytics Dashboard',
+        'projects.web.desc': 'Real-time data visualization and business intelligence platform',
+        'projects.devops.title': 'CI/CD Pipeline',
+        'projects.devops.desc': 'Automated deployment and monitoring infrastructure',
+        
+        // Blog Section
+        'blog.badge': 'Knowledge',
+        'blog.title': 'Latest Insights',
+        'blog.desc': 'Sharing thoughts, discoveries, and technical insights from my development journey',
+        'blog.readmore': 'Continue Reading',
+        
+        // CTA Section
+        'cta.title': 'Let\'s Build Something Amazing',
+        'cta.subtitle': 'Ready to bring your ideas to life? Let\'s collaborate on your next project',
+        'cta.contact': 'Get In Touch',
+        'cta.share': 'Share Files',
         
         // Features Section
         'features.title': 'What I Do',
