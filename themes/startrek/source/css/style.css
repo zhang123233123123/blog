@@ -1,25 +1,66 @@
 /* ==========================================================================
-   Apple-Style Blog Theme - Main Stylesheet
+   Star Trek Blog Theme - Interstellar Edition
    ========================================================================== */
 
-/* Import Design System */
-@import 'design-system.css';
-@import 'components.css';
+/* Import Interstellar Design System */
+@import url('./interstellar-design.css');
+@import url('./interstellar-components.css');
 
 /* ==========================================================================
-   Layout Structure
+   全局布局 - 宇宙结构
    ========================================================================== */
 
 body {
-  background: var(--background-primary);
+  background: var(--bg-primary);
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* 宇宙背景 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--space-gradient);
+}
+
+/* 星空背景 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, var(--star-white), transparent),
+    radial-gradient(2px 2px at 40% 70%, var(--star-white), transparent),
+    radial-gradient(1px 1px at 90% 40%, var(--star-white), transparent),
+    radial-gradient(1px 1px at 50% 60%, var(--star-white), transparent),
+    radial-gradient(2px 2px at 90% 90%, var(--star-white), transparent),
+    radial-gradient(1px 1px at 10% 10%, var(--star-white), transparent);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px, 450px 450px, 200px 200px;
+  animation: cosmos-drift var(--time-century) linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes cosmos-drift {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-50px) translateY(-50px); }
 }
 
 .main-layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: var(--z-surface);
 }
 
 .content-wrapper {
@@ -28,22 +69,24 @@ body {
 }
 
 /* ==========================================================================
-   Header / Navigation
+   导航系统 - 宇宙飞船控制面板
    ========================================================================== */
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: var(--z-sticky);
-  background: var(--surface-secondary);
+  left: 0;
+  right: 0;
+  z-index: var(--z-galaxy);
+  background: var(--surface-glass);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--separator-secondary);
-  transition: all var(--duration-normal) var(--ease-out);
+  border-bottom: 1px solid var(--border-primary);
+  transition: all var(--time-moment) var(--ease-time-dilation);
 }
 
 .site-header.scrolled {
-  box-shadow: var(--shadow-ios-2);
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: var(--shadow-stellar);
 }
 
 .header-container {
@@ -51,591 +94,818 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 72px;
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-human);
 }
 
 .site-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  font-size: var(--font-size-title-3);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
+  gap: var(--space-molecule);
   text-decoration: none;
-  transition: all var(--duration-normal) var(--ease-out);
-  
-  .logo-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(135deg, var(--color-blue), var(--color-purple));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: var(--font-weight-bold);
-    box-shadow: var(--shadow-ios-2);
-  }
-  
-  &:hover .logo-icon {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-ios-3);
-  }
+  transition: all var(--time-moment) var(--ease-gravity);
 }
 
-.site-title {
-  font-size: var(--font-size-title-3);
-  font-weight: var(--font-weight-bold);
-  background: linear-gradient(135deg, var(--color-blue), var(--color-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.site-logo:hover {
+  transform: translateY(-2px);
 }
 
-.site-subtitle {
-  font-size: var(--font-size-footnote);
-  color: var(--text-tertiary);
-  font-weight: var(--font-weight-medium);
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--wormhole-gradient);
+  border-radius: var(--radius-orbit);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-planetary);
+  box-shadow: var(--shadow-gravity);
+  animation: rotate-slow var(--time-century) linear infinite;
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.logo-text .site-title {
+  font-family: var(--font-display);
+  font-size: var(--text-human);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  text-shadow: var(--glow-cooper);
+}
+
+.logo-text .site-subtitle {
+  font-size: var(--text-molecular);
+  color: var(--text-secondary);
+  margin: 0;
+  font-family: var(--font-mono);
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-atom);
   list-style: none;
 }
 
-.nav-item {
-  .nav-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-lg);
-    font-size: var(--font-size-body);
-    font-weight: var(--font-weight-medium);
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all var(--duration-normal) var(--ease-out);
-    
-    &:hover {
-      color: var(--text-primary);
-      background: rgba(var(--color-blue-rgb), 0.08);
-      transform: translateY(-1px);
-    }
-    
-    &.active {
-      color: var(--color-blue);
-      background: rgba(var(--color-blue-rgb), 0.1);
-    }
-  }
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-atom);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-photon);
+  padding: var(--space-atom) var(--space-molecule);
+  border-radius: var(--radius-organism);
+  font-size: var(--text-molecular);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+  position: relative;
+}
+
+.nav-item .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent, rgba(233, 69, 96, 0.1), transparent);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--time-moment) var(--ease-gravity);
+}
+
+.nav-item .nav-link:hover {
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.nav-item .nav-link:hover::before {
+  opacity: 1;
+}
+
+.nav-item .nav-link.active {
+  color: var(--cooper-orange);
+  background: rgba(233, 69, 96, 0.1);
+  text-shadow: var(--glow-cooper);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-molecule);
 }
 
-.language-switcher {
+.language-switcher .language-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-photon);
+  padding: var(--space-atom) var(--space-molecule);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-organism);
+  font-size: var(--text-molecular);
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.language-switcher .language-btn:hover {
+  background: rgba(233, 69, 96, 0.1);
+  color: var(--cooper-orange);
+  transform: translateY(-1px);
+}
+
+/* 按钮样式使用 Interstellar 组件 */
+.btn {
   position: relative;
-  
-  .language-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-3);
-    background: rgba(var(--color-gray-rgb), 0.1);
-    border: none;
-    border-radius: var(--radius-lg);
-    font-size: var(--font-size-footnote);
-    font-weight: var(--font-weight-medium);
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-out);
-    
-    &:hover {
-      background: rgba(var(--color-gray-rgb), 0.15);
-      color: var(--text-primary);
-    }
-  }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-photon);
+  padding: var(--space-molecule) var(--space-organism);
+  border: none;
+  border-radius: var(--radius-organism);
+  font-family: var(--font-primary);
+  font-size: var(--text-molecular);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity var(--time-moment) var(--ease-gravity);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--cooper-orange), var(--warm-amber));
+  color: var(--star-white);
+  box-shadow: var(--shadow-gravity);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-stellar);
+  text-shadow: var(--glow-cooper);
+}
+
+.btn-secondary {
+  background: var(--surface-glass);
+  color: var(--cooper-orange);
+  border: 1px solid var(--border-primary);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(233, 69, 96, 0.1);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-light);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  color: var(--cooper-orange);
+  background: rgba(233, 69, 96, 0.05);
+}
+
+.btn-icon-only {
+  padding: var(--space-molecule);
+  width: 44px;
+  height: 44px;
+}
+
+.btn-lg {
+  padding: var(--space-organism) var(--space-building);
+  font-size: var(--text-cellular);
+  border-radius: var(--radius-planet);
 }
 
 /* ==========================================================================
-   Hero Section
+   Hero 区域 - 宇宙视角
    ========================================================================== */
 
 .hero-section {
   position: relative;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   overflow: hidden;
-  background: linear-gradient(135deg, 
-    var(--background-primary) 0%, 
-    var(--background-secondary) 100%);
+  background: var(--space-gradient);
+  padding-top: 72px; /* 为固定导航留空间 */
 }
 
-.hero-background {
+.hero-section::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--wormhole-gradient);
+  opacity: 0.1;
+  animation: pulse-wormhole var(--time-decade) ease-in-out infinite;
 }
 
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, 
-    rgba(var(--color-blue-rgb), 0.05) 0%,
-    rgba(var(--color-purple-rgb), 0.05) 50%,
-    rgba(var(--color-pink-rgb), 0.05) 100%);
+@keyframes pulse-wormhole {
+  0%, 100% { 
+    opacity: 0.1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.2; 
+    transform: scale(1.1);
+  }
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
-  text-align: center;
+  z-index: var(--z-planet);
   max-width: 800px;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-organism);
 }
 
 .hero-title {
-  margin-bottom: var(--space-6);
-  
-  .title-line {
-    display: block;
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: var(--font-weight-black);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-  
-  .gradient-text {
-    background: linear-gradient(135deg, 
-      var(--color-blue), 
-      var(--color-purple), 
-      var(--color-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  margin-bottom: var(--space-organism);
+}
+
+.hero-title .title-line {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-stellar), 8vw, var(--text-cosmic));
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: var(--space-molecule);
+}
+
+.hero-title .gradient-text {
+  background: var(--time-dilation);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--glow-cooper);
 }
 
 .hero-subtitle {
-  font-size: var(--font-size-title-3);
-  font-weight: var(--font-weight-regular);
+  font-size: var(--text-human);
   color: var(--text-secondary);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-building);
   line-height: 1.5;
+  font-weight: 400;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
-  margin-bottom: var(--space-12);
-  
-  @media (max-width: 640px) {
-    flex-direction: column;
-    gap: var(--space-3);
-  }
+  gap: var(--space-organism);
+  margin-bottom: var(--space-city);
 }
 
 .hero-stats {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
-  
-  @media (max-width: 640px) {
-    gap: var(--space-6);
-  }
+  gap: var(--space-building);
 }
 
 .stat {
   text-align: center;
-  
-  .stat-number {
-    display: block;
-    font-size: var(--font-size-title-1);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-    line-height: 1.2;
-  }
-  
-  .stat-label {
-    display: block;
-    font-size: var(--font-size-footnote);
-    font-weight: var(--font-weight-medium);
-    color: var(--text-tertiary);
-    margin-top: var(--space-1);
-  }
+}
+
+.stat .stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-stellar);
+  font-weight: 700;
+  color: var(--cooper-orange);
+  text-shadow: var(--glow-cooper);
+  line-height: 1.2;
+}
+
+.stat .stat-label {
+  display: block;
+  font-size: var(--text-molecular);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: var(--space-photon);
 }
 
 /* ==========================================================================
-   Feature Cards Section
+   特色卡片 - 太空舱模块
    ========================================================================== */
 
 .features-section {
-  padding: var(--space-24) 0;
-  background: var(--background-secondary);
+  padding: var(--space-city) 0;
+  background: var(--bg-secondary);
+  position: relative;
 }
 
 .features-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-organism);
 }
 
 .features-header {
   text-align: center;
-  margin-bottom: var(--space-16);
-  
-  .section-title {
-    font-size: var(--font-size-large-title);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-4);
-  }
-  
-  .section-subtitle {
-    font-size: var(--font-size-title-3);
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-  }
+  margin-bottom: var(--space-planet);
+}
+
+.features-header .section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-galactic);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-organism);
+  text-shadow: var(--glow-cooper);
+}
+
+.features-header .section-subtitle {
+  font-size: var(--text-human);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-building);
 }
 
 .feature-card {
-  background: var(--surface-primary);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-ios-2);
-  transition: all var(--duration-slow) var(--ease-out);
-  
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-ios-4);
-  }
+  background: var(--surface-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-planet);
+  padding: var(--space-building);
+  transition: all var(--time-second) var(--ease-time-dilation);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--wormhole-gradient);
+  opacity: 0;
+  transition: opacity var(--time-second) var(--ease-gravity);
+  pointer-events: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-blackhole);
+  border-color: var(--border-primary);
+}
+
+.feature-card:hover::before {
+  opacity: 0.05;
 }
 
 .feature-icon {
   width: 64px;
   height: 64px;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, var(--color-blue), var(--color-purple));
+  border-radius: var(--radius-star);
+  background: var(--time-dilation);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  margin-bottom: var(--space-6);
-  box-shadow: var(--shadow-ios-2);
+  font-size: var(--text-planetary);
+  margin-bottom: var(--space-organism);
+  box-shadow: var(--shadow-gravity);
 }
 
 .feature-title {
-  font-size: var(--font-size-title-2);
-  font-weight: var(--font-weight-bold);
+  font-family: var(--font-display);
+  font-size: var(--text-planetary);
+  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-molecule);
 }
 
 .feature-description {
-  font-size: var(--font-size-body);
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-organism);
 }
 
 .feature-meta {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
-  font-size: var(--font-size-footnote);
+  gap: var(--space-molecule);
+  font-size: var(--text-atomic);
   color: var(--text-tertiary);
+  font-family: var(--font-mono);
 }
 
 /* ==========================================================================
-   Blog Posts Section
+   博客文章 - 数据传输包
    ========================================================================== */
 
 .posts-section {
-  padding: var(--space-24) 0;
+  padding: var(--space-city) 0;
 }
 
 .posts-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-organism);
 }
 
 .posts-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-12);
-  
-  .section-title {
-    font-size: var(--font-size-large-title);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-  }
-  
-  .view-all-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-body);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-blue);
-    text-decoration: none;
-    transition: all var(--duration-normal) var(--ease-out);
-    
-    &:hover {
-      transform: translateX(4px);
-    }
-  }
+  margin-bottom: var(--space-building);
+}
+
+.posts-header .section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-galactic);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: var(--glow-cooper);
+}
+
+.view-all-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-photon);
+  color: var(--cooper-orange);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--time-moment) var(--ease-gravity);
+}
+
+.view-all-link:hover {
+  transform: translateX(4px);
+  text-shadow: var(--glow-cooper);
 }
 
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-building);
 }
 
 .post-card {
-  background: var(--surface-primary);
-  border-radius: var(--radius-2xl);
+  background: var(--surface-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-planet);
   overflow: hidden;
-  box-shadow: var(--shadow-ios-2);
-  transition: all var(--duration-slow) var(--ease-out);
-  
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-ios-4);
-  }
+  transition: all var(--time-second) var(--ease-time-dilation);
+  backdrop-filter: blur(20px);
+}
+
+.post-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    var(--shadow-blackhole),
+    0 0 0 1px rgba(233, 69, 96, 0.2);
+  border-color: var(--cooper-orange);
 }
 
 .post-image {
   width: 100%;
   height: 200px;
+  background: var(--time-dilation);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-stellar);
+  color: var(--star-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  background: var(--background-secondary);
+  transition: transform var(--time-second) var(--ease-time-dilation);
+}
+
+.post-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--horizon-gradient);
+  opacity: 0.6;
 }
 
 .post-content {
-  padding: var(--space-6);
+  padding: var(--space-organism);
+  position: relative;
 }
 
 .post-meta {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  gap: var(--space-molecule);
+  margin-bottom: var(--space-molecule);
+  font-family: var(--font-mono);
+  font-size: var(--text-atomic);
 }
 
 .post-date {
-  font-size: var(--font-size-footnote);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-blue);
+  color: var(--cooper-orange);
+  text-shadow: var(--glow-cooper);
+  font-weight: 500;
 }
 
 .post-category {
-  padding: var(--space-1) var(--space-3);
-  background: rgba(var(--color-purple-rgb), 0.1);
-  color: var(--color-purple);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-caption-1);
-  font-weight: var(--font-weight-semibold);
+  padding: var(--space-photon) var(--space-atom);
+  background: rgba(243, 156, 18, 0.1);
+  color: var(--golden-hour);
+  border-radius: var(--radius-molecule);
+  font-weight: 500;
+  border: 1px solid rgba(243, 156, 18, 0.2);
 }
 
 .post-title {
-  font-size: var(--font-size-title-2);
-  font-weight: var(--font-weight-bold);
+  font-family: var(--font-display);
+  font-size: var(--text-planetary);
+  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-molecule);
   line-height: 1.3;
-  
-  .post-link {
-    color: inherit;
-    text-decoration: none;
-    transition: color var(--duration-normal) var(--ease-out);
-    
-    &:hover {
-      color: var(--color-blue);
-    }
-  }
+}
+
+.post-title .post-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--time-moment) var(--ease-gravity);
+}
+
+.post-title .post-link:hover {
+  color: var(--cooper-orange);
+  text-shadow: var(--glow-cooper);
 }
 
 .post-excerpt {
-  font-size: var(--font-size-body);
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-organism);
+  font-size: var(--text-molecular);
 }
 
 .post-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--separator-secondary);
-  padding-top: var(--space-4);
+  padding-top: var(--space-molecule);
+  border-top: 1px solid var(--border-secondary);
 }
 
 .read-more {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-blue);
+  gap: var(--space-photon);
+  color: var(--cooper-orange);
   text-decoration: none;
-  transition: all var(--duration-normal) var(--ease-out);
-  
-  &:hover {
-    transform: translateX(4px);
-  }
+  font-weight: 500;
+  font-size: var(--text-molecular);
+  transition: all var(--time-moment) var(--ease-gravity);
+}
+
+.read-more:hover {
+  transform: translateX(4px);
+  text-shadow: var(--glow-cooper);
 }
 
 .post-tags {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--space-photon);
   flex-wrap: wrap;
 }
 
 .tag {
-  padding: var(--space-1) var(--space-2);
-  background: rgba(var(--color-orange-rgb), 0.1);
-  color: var(--color-orange);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-caption-1);
-  font-weight: var(--font-weight-medium);
+  padding: var(--space-photon) var(--space-atom);
+  background: rgba(255, 107, 53, 0.1);
+  color: var(--sunset-glow);
+  border-radius: var(--radius-molecule);
+  font-size: var(--text-atomic);
+  font-weight: 500;
   text-decoration: none;
-  transition: all var(--duration-normal) var(--ease-out);
-  
-  &:hover {
-    background: rgba(var(--color-orange-rgb), 0.15);
-    transform: translateY(-1px);
-  }
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  transition: all var(--time-moment) var(--ease-gravity);
+}
+
+.tag:hover {
+  background: rgba(255, 107, 53, 0.15);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-photon);
 }
 
 /* ==========================================================================
-   Footer
+   页脚 - 任务控制中心
    ========================================================================== */
 
 .site-footer {
-  background: var(--background-secondary);
-  border-top: 1px solid var(--separator-secondary);
-  padding: var(--space-16) 0 var(--space-8);
-  margin-top: auto;
+  background: var(--deep-space);
+  border-top: 1px solid var(--border-primary);
+  padding: var(--space-city) 0 var(--space-building);
+  margin-top: var(--space-planet);
+  position: relative;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--time-dilation);
+  opacity: 0.5;
 }
 
 .footer-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-organism);
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-8);
-  margin-bottom: var(--space-12);
+  gap: var(--space-building);
+  margin-bottom: var(--space-building);
 }
 
-.footer-section {
-  .footer-title {
-    font-size: var(--font-size-headline);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-4);
-  }
-  
-  .footer-text {
-    font-size: var(--font-size-body);
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: var(--space-4);
-  }
+.footer-section .footer-title {
+  font-family: var(--font-display);
+  font-size: var(--text-human);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-organism);
+  text-shadow: var(--glow-cooper);
+}
+
+.footer-section .footer-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-organism);
 }
 
 .footer-links {
   list-style: none;
-  
-  .footer-link {
-    display: block;
-    font-size: var(--font-size-body);
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: var(--space-2) 0;
-    transition: color var(--duration-normal) var(--ease-out);
-    
-    &:hover {
-      color: var(--color-blue);
-    }
-  }
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links .footer-link {
+  display: block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-photon) 0;
+  transition: color var(--time-moment) var(--ease-gravity);
+  font-size: var(--text-molecular);
+}
+
+.footer-links .footer-link:hover {
+  color: var(--cooper-orange);
+  transform: translateX(4px);
 }
 
 .social-links {
   display: flex;
-  gap: var(--space-4);
-  
-  .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: rgba(var(--color-gray-rgb), 0.1);
-    border-radius: var(--radius-lg);
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all var(--duration-normal) var(--ease-out);
-    
-    &:hover {
-      background: rgba(var(--color-blue-rgb), 0.1);
-      color: var(--color-blue);
-      transform: translateY(-2px);
-    }
-  }
+  gap: var(--space-molecule);
+}
+
+.social-links .social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-organism);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.social-links .social-link:hover {
+  background: rgba(233, 69, 96, 0.1);
+  color: var(--cooper-orange);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-light);
 }
 
 .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--separator-secondary);
-  
-  @media (max-width: 640px) {
-    flex-direction: column;
-    gap: var(--space-4);
-    text-align: center;
-  }
-}
-
-.footer-copyright {
-  font-size: var(--font-size-footnote);
+  padding-top: var(--space-organism);
+  border-top: 1px solid var(--border-secondary);
+  font-size: var(--text-atomic);
   color: var(--text-tertiary);
 }
 
 /* ==========================================================================
-   Responsive Design
+   CTA 区域
+   ========================================================================== */
+
+.cta-section {
+  padding: var(--space-city) 0;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--space-organism);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-molecule);
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: var(--space-organism);
+}
+
+.form-input {
+  flex: 1;
+  padding: var(--space-molecule) var(--space-organism);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-organism);
+  color: var(--text-primary);
+  font-size: var(--text-molecular);
+  backdrop-filter: blur(10px);
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--cooper-orange);
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* ==========================================================================
+   响应式设计 - 适应不同维度
    ========================================================================== */
 
 @media (max-width: 768px) {
   .header-container {
-    height: 60px;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-organism);
   }
   
   .main-nav {
@@ -643,39 +913,99 @@ body {
   }
   
   .hero-section {
-    min-height: 60vh;
-    padding: var(--space-12) 0;
+    min-height: 80vh;
+    padding-top: 72px;
   }
   
   .hero-content {
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-organism);
   }
   
-  .features-section,
-  .posts-section {
-    padding: var(--space-16) 0;
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--space-molecule);
   }
   
-  .features-container,
-  .posts-container {
-    padding: 0 var(--space-4);
+  .hero-stats {
+    gap: var(--space-organism);
   }
   
   .features-grid,
   .posts-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-organism);
   }
   
   .posts-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-4);
+    gap: var(--space-molecule);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-organism);
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-molecule);
+    text-align: center;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stats {
+    flex-direction: column;
+    gap: var(--space-building);
   }
 }
 
 /* ==========================================================================
-   Animation & Transitions
+   隐藏类和实用工具
+   ========================================================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.hidden-mobile {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+}
+
+/* Icon styles */
+.icon {
+  flex-shrink: 0;
+}
+
+/* Theme toggle icons */
+.theme-icon-light,
+.theme-icon-dark {
+  transition: opacity var(--time-moment) var(--ease-gravity);
+}
+
+[data-theme="light"] .theme-icon-light {
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-icon-dark {
+  opacity: 0;
+}
+
+/* ==========================================================================
+   动画和过渡效果
    ========================================================================== */
 
 @keyframes fadeInUp {
@@ -689,59 +1019,68 @@ body {
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s var(--ease-out);
+  animation: fadeInUp 0.6s var(--ease-time-dilation);
 }
 
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s var(--ease-out);
+/* Loading state */
+.loading {
+  opacity: 0;
+  transition: opacity var(--time-second) var(--ease-time-dilation);
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+/* Mobile navigation */
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface-glass);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-primary);
+  transition: all var(--time-moment) var(--ease-time-dilation);
 }
 
-/* ==========================================================================
-   Print Styles
-   ========================================================================== */
+.mobile-nav-content {
+  padding: var(--space-organism);
+}
 
-@media print {
-  .site-header,
-  .site-footer,
-  .hero-section,
-  .features-section {
-    display: none;
-  }
-  
-  body {
-    background: white;
-    color: black;
-  }
-  
-  .post-card {
-    box-shadow: none;
-    border: 1px solid #ddd;
-    break-inside: avoid;
-    margin-bottom: 20px;
-  }
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-item {
+  margin-bottom: var(--space-molecule);
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: var(--space-molecule);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-organism);
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.mobile-nav-link:hover {
+  color: var(--cooper-orange);
+  background: rgba(233, 69, 96, 0.1);
+}
+
+/* Navbar toggle */
+.navbar-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--space-molecule);
+  border-radius: var(--radius-organism);
+  transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.navbar-toggle:hover {
+  color: var(--cooper-orange);
+  background: rgba(233, 69, 96, 0.1);
 }
