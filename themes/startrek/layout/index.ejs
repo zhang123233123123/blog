@@ -1,61 +1,282 @@
 <!-- Hero Section -->
-<section class="hero glass-panel">
+<section class="hero-section">
+    <div class="hero-background">
+        <div class="hero-gradient"></div>
+    </div>
+    
     <div class="hero-content">
-        <h1 class="hero-title glow-text">Welcome to the Final Frontier</h1>
-        <p class="hero-description">Exploring technology, science, and the future through a Star Trek lens</p>
-        <div class="hero-buttons">
-            <a href="/archives" class="btn btn-primary glow-hover">Explore Posts</a>
-            <a href="/about" class="btn btn-secondary glow-hover">About Mission</a>
+        <div class="hero-title">
+            <span class="title-line">Discover Amazing</span>
+            <span class="title-line gradient-text">Digital Experiences</span>
+        </div>
+        
+        <p class="hero-subtitle">
+            Premium apps, tools, and resources crafted with attention to detail
+        </p>
+        
+        <div class="hero-actions">
+            <a href="<%- url_for('/archives') %>" class="btn btn-primary btn-lg">
+                <span>Explore Apps</span>
+                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7,7 17,7 17,17"></polyline>
+                </svg>
+            </a>
+            <a href="<%- url_for('/about') %>" class="btn btn-secondary btn-lg">
+                <span>Learn More</span>
+            </a>
+        </div>
+        
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Apps</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Downloads</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">4.8★</span>
+                <span class="stat-label">Rating</span>
+            </div>
         </div>
     </div>
-    <div class="hero-visual">
-        <div class="hologram-effect"></div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="features-container">
+        <div class="features-header">
+            <h2 class="section-title">What We Offer</h2>
+            <p class="section-subtitle">
+                High-quality digital solutions for every platform
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Mobile Apps -->
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Mobile Apps</h3>
+                <p class="feature-description">
+                    Native iOS and Android applications with beautiful designs and smooth performance.
+                </p>
+                <div class="feature-meta">
+                    <span>iOS • Android</span>
+                    <span>• 12 Apps</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Software -->
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3 class="feature-title">Desktop Software</h3>
+                <p class="feature-description">
+                    Powerful desktop applications for macOS, Windows, and Linux platforms.
+                </p>
+                <div class="feature-meta">
+                    <span>macOS • Windows • Linux</span>
+                    <span>• 18 Apps</span>
+                </div>
+            </div>
+            
+            <!-- Web Applications -->
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Web Applications</h3>
+                <p class="feature-description">
+                    Modern web apps and Progressive Web Apps that work seamlessly across devices.
+                </p>
+                <div class="feature-meta">
+                    <span>PWA • SPA • Tools</span>
+                    <span>• 24 Apps</span>
+                </div>
+            </div>
+            
+            <!-- Resources -->
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3 class="feature-title">Resources</h3>
+                <p class="feature-description">
+                    UI kits, templates, icons, and other design resources for developers and designers.
+                </p>
+                <div class="feature-meta">
+                    <span>Icons • Templates • Fonts</span>
+                    <span>• 36 Items</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Posts Section -->
+<!-- Latest Posts Section -->
 <section class="posts-section">
-    <% page.posts.each(function(post) { %>
-        <article class="post-card glass-panel hover-lift">
-            <div class="post-meta">
-                <time class="post-date glow-text"><%= date(post.date, 'MMM DD, YYYY') %></time>
-                <% if (post.categories && post.categories.length) { %>
-                    <span class="post-category">
-                        <%= post.categories.data[0].name %>
-                    </span>
-                <% } %>
-            </div>
-            <h2 class="post-title">
-                <a href="<%- url_for(post.path) %>" class="post-link glow-hover">
-                    <%= post.title %>
-                </a>
-            </h2>
-            <div class="post-excerpt">
-                <%= truncate(strip_html(post.excerpt || post.content), 150) %>
-            </div>
-            <div class="post-footer">
-                <a href="<%- url_for(post.path) %>" class="read-more glow-hover">
-                    Continue Reading →
-                </a>
-                <% if (post.tags && post.tags.length) { %>
-                    <div class="post-tags">
-                        <% post.tags.each(function(tag) { %>
-                            <span class="tag">#<%= tag.name %></span>
-                        <% }) %>
+    <div class="posts-container">
+        <div class="posts-header">
+            <h2 class="section-title">Latest Posts</h2>
+            <a href="<%- url_for('/archives') %>" class="view-all-link">
+                <span>View All</span>
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7,7 17,7 17,17"></polyline>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="posts-grid">
+            <% site.posts.sort('date', -1).limit(6).each(function(post) { %>
+                <article class="post-card">
+                    <% if (post.image) { %>
+                        <img src="<%= post.image %>" alt="<%= post.title %>" class="post-image">
+                    <% } else { %>
+                        <div class="post-image" style="background: linear-gradient(135deg, var(--color-blue), var(--color-purple)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            📝
+                        </div>
+                    <% } %>
+                    
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <time class="post-date" datetime="<%= date(post.date, 'YYYY-MM-DD') %>">
+                                <%= date(post.date, 'MMM DD, YYYY') %>
+                            </time>
+                            <% if (post.categories && post.categories.length) { %>
+                                <span class="post-category">
+                                    <%= post.categories.data[0].name %>
+                                </span>
+                            <% } %>
+                        </div>
+                        
+                        <h3 class="post-title">
+                            <a href="<%- url_for(post.path) %>" class="post-link">
+                                <%= post.title %>
+                            </a>
+                        </h3>
+                        
+                        <p class="post-excerpt">
+                            <%= truncate(strip_html(post.excerpt || post.content), 120) %>
+                        </p>
+                        
+                        <div class="post-footer">
+                            <a href="<%- url_for(post.path) %>" class="read-more">
+                                <span>Continue Reading</span>
+                                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7,7 17,7 17,17"></polyline>
+                                </svg>
+                            </a>
+                            
+                            <% if (post.tags && post.tags.length) { %>
+                                <div class="post-tags">
+                                    <% post.tags.limit(3).each(function(tag) { %>
+                                        <a href="<%- url_for(tag.path) %>" class="tag">
+                                            #<%= tag.name %>
+                                        </a>
+                                    <% }) %>
+                                </div>
+                            <% } %>
+                        </div>
                     </div>
-                <% } %>
-            </div>
-        </article>
-    <% }) %>
+                </article>
+            <% }) %>
+        </div>
+    </div>
 </section>
 
-<!-- Pagination -->
-<% if (page.total > 1) { %>
-    <nav class="pagination glass-panel">
-        <%- paginator({
-            prev_text: '← Previous',
-            next_text: 'Next →',
-            class: 'page-nav'
-        }) %>
-    </nav>
-<% } %>
+<!-- Newsletter/CTA Section -->
+<section class="cta-section" style="padding: var(--space-24) 0; background: var(--background-secondary);">
+    <div class="container">
+        <div class="cta-content" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <h2 class="text-large-title" style="margin-bottom: var(--space-4);">
+                Stay Updated
+            </h2>
+            <p class="text-title-3 text-secondary" style="margin-bottom: var(--space-8); line-height: 1.5;">
+                Get notified about new apps, updates, and exclusive content delivered to your inbox.
+            </p>
+            
+            <div class="newsletter-form" style="display: flex; gap: var(--space-3); max-width: 400px; margin: 0 auto;">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    class="form-input" 
+                    style="flex: 1;"
+                    aria-label="Email address"
+                >
+                <button class="btn btn-primary btn-md">
+                    Subscribe
+                </button>
+            </div>
+            
+            <p class="text-footnote text-tertiary" style="margin-top: var(--space-4);">
+                No spam, unsubscribe at any time.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+// Add scroll-triggered animations
+document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in-up');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe feature cards and post cards
+    document.querySelectorAll('.feature-card, .post-card').forEach(card => {
+        observer.observe(card);
+    });
+    
+    // Add stagger effect to feature cards
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // Add stagger effect to post cards
+    const postCards = document.querySelectorAll('.post-card');
+    postCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // Newsletter form handling
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+        
+        subscribeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (emailInput.value && emailInput.validity.valid) {
+                // Add success state
+                subscribeBtn.textContent = 'Subscribed!';
+                subscribeBtn.disabled = true;
+                emailInput.value = '';
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    subscribeBtn.textContent = 'Subscribe';
+                    subscribeBtn.disabled = false;
+                }, 3000);
+            } else {
+                // Add error state
+                emailInput.focus();
+                emailInput.style.borderColor = 'var(--color-red)';
+                
+                setTimeout(() => {
+                    emailInput.style.borderColor = '';
+                }, 2000);
+            }
+        });
+    }
+});
+</script>

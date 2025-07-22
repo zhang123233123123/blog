@@ -1,67 +1,295 @@
 <!DOCTYPE html>
-<html lang="<%= config.language %>">
+<html lang="<%= config.language %>" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007AFF">
+    <meta name="color-scheme" content="light dark">
+    
     <title><% if (page.title){ %><%= page.title %> | <% } %><%= config.title %></title>
-    <meta name="description" content="<%= config.description %>">
+    <meta name="description" content="<% if (page.description) { %><%= page.description %><% } else { %><%= config.description %><% } %>">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="<%- url_for('css/design-system.css') %>" as="style">
+    <link rel="preload" href="<%- url_for('css/components.css') %>" as="style">
+    <link rel="preload" href="<%- url_for('css/style.css') %>" as="style">
     
-    <!-- Styles -->
+    <!-- System Fonts (No external fonts needed for Apple style) -->
+    <style>
+        /* Critical CSS for initial render */
+        html { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; }
+        body { margin: 0; background: #FFFFFF; }
+        .loading { opacity: 0; }
+        @media (prefers-color-scheme: dark) {
+            body { background: #000000; color: #FFFFFF; }
+        }
+    </style>
+    
+    <!-- Stylesheets -->
     <%- css('css/style') %>
     
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-</head>
-<body>
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     
-    <!-- Main Container -->
-    <div class="glass-container">
+    <!-- Safari specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="<%= config.title %>">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<% if (page.title){ %><%= page.title %> | <% } %><%= config.title %>">
+    <meta property="og:description" content="<% if (page.description) { %><%= page.description %><% } else { %><%= config.description %><% } %>">
+    <meta property="og:url" content="<%= config.url %>">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<% if (page.title){ %><%= page.title %> | <% } %><%= config.title %>">
+    <meta name="twitter:description" content="<% if (page.description) { %><%= page.description %><% } else { %><%= config.description %><% } %>">
+</head>
+<body class="loading">
+    <div class="main-layout">
         <!-- Header -->
-        <header class="header glass-panel">
-            <nav class="navbar">
-                <div class="nav-brand">
-                    <h1 class="site-title glow-text"><%= config.title %></h1>
-                    <p class="site-subtitle"><%= config.subtitle %></p>
+        <header class="site-header" id="header">
+            <div class="header-container">
+                <!-- Logo/Brand -->
+                <a href="<%- url_for('/') %>" class="site-logo">
+                    <div class="logo-icon">🚀</div>
+                    <div class="logo-text">
+                        <div class="site-title"><%= config.title %></div>
+                        <div class="site-subtitle"><%= config.subtitle %></div>
+                    </div>
+                </a>
+                
+                <!-- Main Navigation -->
+                <nav class="main-nav hidden-mobile">
+                    <ul class="nav-list">
+                        <% for (let name in theme.menu) { %>
+                            <li class="nav-item">
+                                <a href="<%- url_for(theme.menu[name]) %>" class="nav-link">
+                                    <%= name %>
+                                </a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </nav>
+                
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="language-btn" id="language-toggle">
+                            <span class="language-text">EN</span>
+                            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="btn btn-icon-only btn-ghost" id="theme-toggle" aria-label="Toggle theme">
+                        <svg class="icon theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="icon theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="navbar-toggle hidden-desktop" id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
                 </div>
-                <ul class="nav-menu">
-                    <% for (let name in theme.menu) { %>
-                        <li class="nav-item">
-                            <a href="<%- url_for(theme.menu[name]) %>" class="nav-link glow-hover">
-                                <%= name %>
-                            </a>
-                        </li>
-                    <% } %>
-                </ul>
-            </nav>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav hidden" id="mobile-nav">
+                <div class="mobile-nav-content">
+                    <ul class="mobile-nav-list">
+                        <% for (let name in theme.menu) { %>
+                            <li class="mobile-nav-item">
+                                <a href="<%- url_for(theme.menu[name]) %>" class="mobile-nav-link">
+                                    <%= name %>
+                                </a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
         </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <%- body %>
-        </main>
+        <!-- Main Content Wrapper -->
+        <div class="content-wrapper">
+            <main class="main-content">
+                <%- body %>
+            </main>
+        </div>
 
         <!-- Footer -->
-        <footer class="footer glass-panel">
-            <div class="footer-content">
-                <p class="footer-text"><%= theme.footer.copyright %></p>
-                <div class="social-links">
-                    <% for (let name in theme.social) { %>
-                        <a href="<%= theme.social[name] %>" class="social-link glow-hover" target="_blank">
-                            <%= name %>
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <!-- About Section -->
+                    <div class="footer-section">
+                        <h3 class="footer-title"><%= config.title %></h3>
+                        <p class="footer-text"><%= config.description %></p>
+                        <div class="social-links">
+                            <% for (let name in theme.social) { %>
+                                <a href="<%= theme.social[name] %>" class="social-link" target="_blank" rel="noopener" aria-label="<%= name %>">
+                                    <% if (name === 'GitHub') { %>
+                                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                    <% } else if (name === 'Twitter') { %>
+                                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                        </svg>
+                                    <% } else if (name === 'Email') { %>
+                                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                            <polyline points="22,6 12,13 2,6"></polyline>
+                                        </svg>
+                                    <% } else { %>
+                                        <%= name.charAt(0) %>
+                                    <% } %>
+                                </a>
+                            <% } %>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <% for (let name in theme.menu) { %>
+                                <li>
+                                    <a href="<%- url_for(theme.menu[name]) %>" class="footer-link">
+                                        <%= name %>
+                                    </a>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    
+                    <!-- Categories -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Web Apps</a></li>
+                            <li><a href="#" class="footer-link">Mobile Apps</a></li>
+                            <li><a href="#" class="footer-link">Desktop Software</a></li>
+                            <li><a href="#" class="footer-link">Resources</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Get in Touch</h3>
+                        <p class="footer-text">Have questions or suggestions? We'd love to hear from you.</p>
+                        <a href="mailto:contact@example.com" class="btn btn-secondary btn-sm">
+                            Contact Us
                         </a>
-                    <% } %>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        © <%= new Date().getFullYear() %> <%= config.title %>. Made with ❤️ using Hexo.
+                    </div>
+                    <div class="footer-meta">
+                        <span class="text-tertiary">Powered by modern web technologies</span>
+                    </div>
                 </div>
             </div>
         </footer>
     </div>
 
     <!-- Scripts -->
-    <%- js('js/particles-config') %>
+    <script>
+        // Remove no-js class and add js class
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+        
+        // Remove loading class after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.remove('loading');
+        });
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        function updateTheme(isDark) {
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            updateTheme(savedTheme === 'dark');
+        } else {
+            updateTheme(prefersDark.matches);
+        }
+        
+        // Theme toggle click handler
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                updateTheme(currentTheme === 'light');
+            });
+        }
+        
+        // Listen for system theme changes
+        prefersDark.addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) {
+                updateTheme(e.matches);
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileNav.classList.toggle('hidden');
+                mobileMenuToggle.setAttribute('aria-expanded', 
+                    mobileNav.classList.contains('hidden') ? 'false' : 'true'
+                );
+            });
+        }
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+    </script>
+    
     <%- js('js/animations') %>
 </body>
 </html>
