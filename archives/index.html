@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#007AFF">
+    <meta name="color-scheme" content="light dark">
+    
+    <title>Star Trek Blog</title>
+    <meta name="description" content="A futuristic blog with liquid glass design inspired by Star Trek">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/blog/css/design-system.css" as="style">
+    <link rel="preload" href="/blog/css/components.css" as="style">
+    <link rel="preload" href="/blog/css/style.css" as="style">
+    
+    <!-- System Fonts (No external fonts needed for Apple style) -->
+    <style>
+        /* Critical CSS for initial render */
+        html { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif; }
+        body { margin: 0; background: #FFFFFF; }
+        .loading { opacity: 0; }
+        @media (prefers-color-scheme: dark) {
+            body { background: #000000; color: #FFFFFF; }
+        }
+    </style>
+    
+    <!-- Stylesheets -->
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    
+<link rel="stylesheet" href="/blog/css/premium-ui.css">
+
+    
+<link rel="stylesheet" href="/blog/css/luxury-homepage.css">
+
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- Safari specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Star Trek Blog">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Star Trek Blog">
+    <meta property="og:description" content="A futuristic blog with liquid glass design inspired by Star Trek">
+    <meta property="og:url" content="https://zhang12332123123.github.io">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Star Trek Blog">
+    <meta name="twitter:description" content="A futuristic blog with liquid glass design inspired by Star Trek">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="loading">
+    <div class="main-layout">
+        <!-- Header -->
+        <header class="site-header" id="header">
+            <div class="header-container">
+                <!-- Logo/Brand -->
+                <a href="/blog/" class="site-logo">
+                    <div class="logo-icon-advanced">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                            <path d="M19 15L20.09 18.26L24 19L20.09 19.74L19 23L17.91 19.74L14 19L17.91 18.26L19 15Z"/>
+                            <path d="M5 6L6.09 9.26L10 10L6.09 10.74L5 14L3.91 10.74L0 10L3.91 9.26L5 6Z"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <div class="site-title">Star Trek Blog</div>
+                        <div class="site-subtitle" data-i18n="nav.subtitle">Interstellar Mission Command</div>
+                    </div>
+                </a>
+                
+                <!-- Main Navigation -->
+                <nav class="main-nav hidden-mobile">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/blog/" class="nav-link">
+                                <div class="nav-icon-enhanced">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                        <polyline points="9,22 9,12 15,12 15,22"/>
+                                    </svg>
+                                </div>
+                                <span data-i18n="nav.home">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/blog/archives" class="nav-link">
+                                <div class="nav-icon-enhanced">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                        <polyline points="7.5,4.21 12,6.81 16.5,4.21"/>
+                                        <polyline points="7.5,19.79 7.5,14.6 3,12"/>
+                                        <polyline points="21,12 16.5,14.6 16.5,19.79"/>
+                                        <polyline points="12,22.81 12,17"/>
+                                    </svg>
+                                </div>
+                                <span data-i18n="nav.archives">Archives</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/blog/about" class="nav-link">
+                                <div class="nav-icon-enhanced">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                </div>
+                                <span data-i18n="nav.about">About</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/blog/upload" class="nav-link">
+                                <div class="nav-icon-enhanced">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7,10 12,15 17,10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                </div>
+                                <span data-i18n="nav.upload">Upload</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="language-toggle-enhanced" id="language-toggle" title="Switch Language">
+                            <div class="nav-icon-enhanced">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <span class="language-text">EN</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle-enhanced" id="theme-toggle" aria-label="Toggle theme">
+                        <div class="theme-icon-light">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        </div>
+                        <div class="theme-icon-dark">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="navbar-toggle hidden-desktop" id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <div class="nav-icon-enhanced">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="3" y1="6" x2="21" y2="6"/>
+                                <line x1="3" y1="12" x2="21" y2="12"/>
+                                <line x1="3" y1="18" x2="21" y2="18"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav hidden" id="mobile-nav">
+                <div class="mobile-nav-content">
+                    <ul class="mobile-nav-list">
+                        
+                            <li class="mobile-nav-item">
+                                <a href="/blog/" class="mobile-nav-link">
+                                    Home
+                                </a>
+                            </li>
+                        
+                            <li class="mobile-nav-item">
+                                <a href="/blog/archives" class="mobile-nav-link">
+                                    Archives
+                                </a>
+                            </li>
+                        
+                            <li class="mobile-nav-item">
+                                <a href="/blog/about" class="mobile-nav-link">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Wrapper -->
+        <div class="content-wrapper">
+            <main class="main-content">
+                <!-- Advanced Archives Page - 高级归档页面 -->
+<section class="archives-hero">
+    <div class="archives-hero-content">
+        <div class="hero-icon-container">
+            <div class="advanced-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+            </div>
+            <div class="icon-pulse-ring"></div>
+        </div>
+        
+        <h1 class="archives-title" data-i18n="archives.title">Knowledge Archives</h1>
+        <p class="archives-subtitle" data-i18n="archives.subtitle">
+            探索技术文章的时间轴 / Explore the timeline of technical articles
+        </p>
+        
+        <div class="archives-stats">
+            <div class="stat-item">
+                <span class="stat-number">2</span>
+                <span class="stat-label" data-i18n="archives.stats.total">Total Articles</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1</span>
+                <span class="stat-label" data-i18n="archives.stats.categories">Categories</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label" data-i18n="archives.stats.tags">Tags</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="archives-background">
+        <div class="floating-particles"></div>
+        <div class="data-grid"></div>
+    </div>
+</section>
+
+<!-- Archives Timeline -->
+<section class="archives-timeline">
+    <div class="container">
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                
+                    
+                    
+                    
+                    <!-- Year Marker -->
+                    <div class="timeline-year" style="--delay: 0.1s">
+                        <div class="year-marker">
+                            <div class="year-icon">
+                                <div class="advanced-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h2 class="year-title">2025</h2>
+                            <div class="year-glow"></div>
+                        </div>
+                    </div>
+                
+                
+                <!-- Post Entry -->
+                <article class="timeline-post" data-aos="fade-up" data-aos-delay="0">
+                    <div class="post-connector">
+                        <div class="connector-dot"></div>
+                        <div class="connector-pulse"></div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <div class="post-header">
+                            <time class="post-date">
+                                <span class="month">Jul</span>
+                                <span class="day">21</span>
+                            </time>
+                            
+                            
+                                <div class="post-category">
+                                    <div class="category-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                                            <line x1="7" y1="7" x2="7.01" y2="7"/>
+                                        </svg>
+                                    </div>
+                                    <span>Blog</span>
+                                </div>
+                            
+                        </div>
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/blog/2025/07/21/Welcome-to-the-Final-Frontier/">Welcome to the Final Frontier</a>
+                            </h3>
+                            
+                            
+                                <p class="post-excerpt">Boldly going where no blog has gone before - exploring the intersection of technology, science, and the future through a Star Trek lens.</p>
+                            
+                            
+                            
+                                <div class="post-tags">
+                                    
+                                        <a href="/blog/tags/exploration/" class="tag">
+                                            #exploration
+                                        </a>
+                                    
+                                        <a href="/blog/tags/technology/" class="tag">
+                                            #technology
+                                        </a>
+                                    
+                                        <a href="/blog/tags/future/" class="tag">
+                                            #future
+                                        </a>
+                                    
+                                </div>
+                            
+                        </div>
+                        
+                        <div class="post-footer">
+                            <a href="/blog/2025/07/21/Welcome-to-the-Final-Frontier/" class="read-more-btn">
+                                <span data-i18n="archives.readmore">Continue Reading</span>
+                                <div class="btn-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="7" y1="17" x2="17" y2="7"/>
+                                        <polyline points="7,7 17,7 17,17"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            
+                
+                
+                
+                
+                
+                
+                <!-- Post Entry -->
+                <article class="timeline-post" data-aos="fade-up" data-aos-delay="50">
+                    <div class="post-connector">
+                        <div class="connector-dot"></div>
+                        <div class="connector-pulse"></div>
+                    </div>
+                    
+                    <div class="post-card">
+                        <div class="post-header">
+                            <time class="post-date">
+                                <span class="month">Jul</span>
+                                <span class="day">21</span>
+                            </time>
+                            
+                            
+                        </div>
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/blog/2025/07/21/hello-world/">Hello World</a>
+                            </h3>
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="post-footer">
+                            <a href="/blog/2025/07/21/hello-world/" class="read-more-btn">
+                                <span data-i18n="archives.readmore">Continue Reading</span>
+                                <div class="btn-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="7" y1="17" x2="17" y2="7"/>
+                                        <polyline points="7,7 17,7 17,17"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Pagination -->
+
+
+<style>
+/* Advanced Archives Styles */
+.archives-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--space-gradient);
+    overflow: hidden;
+}
+
+.archives-hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 var(--space-organism);
+    position: relative;
+    z-index: var(--z-planet);
+}
+
+.hero-icon-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--space-building);
+}
+
+.hero-icon-container .advanced-icon {
+    width: 100px;
+    height: 100px;
+    color: var(--cooper-orange);
+    animation: float var(--time-decade) ease-in-out infinite;
+}
+
+.icon-pulse-ring {
+    position: absolute;
+    inset: -20px;
+    border: 2px solid var(--cooper-orange);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse-ring var(--time-year) ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.1; }
+}
+
+.archives-title {
+    font-family: var(--font-display);
+    font-size: var(--text-massive);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-molecule);
+    text-shadow: var(--glow-cooper);
+}
+
+.archives-subtitle {
+    font-size: var(--text-human);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-building);
+}
+
+.archives-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-city);
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-galactic);
+    font-weight: 700;
+    color: var(--cooper-orange);
+    text-shadow: var(--glow-cooper);
+}
+
+.stat-label {
+    font-size: var(--text-molecular);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.archives-background {
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-subatomic);
+}
+
+.floating-particles {
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23E94560" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="30" r="1" fill="%23E94560" opacity="0.3"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/></circle><circle cx="60" cy="70" r="1" fill="%23E94560" opacity="0.4"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite"/></circle></svg>');
+    animation: particle-drift var(--time-century) linear infinite;
+}
+
+.data-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(90deg, var(--border-primary) 1px, transparent 1px),
+        linear-gradient(0deg, var(--border-primary) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    animation: grid-scan var(--time-decade) linear infinite;
+}
+
+@keyframes grid-scan {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50px); }
+}
+
+/* Timeline Styles */
+.archives-timeline {
+    padding: var(--space-city) 0;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-organism);
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent, 
+        var(--cooper-orange) 10%, 
+        var(--cooper-orange) 90%, 
+        transparent
+    );
+    transform: translateX(-50%);
+    z-index: var(--z-atomic);
+}
+
+.timeline-year {
+    position: relative;
+    margin: var(--space-city) 0;
+    animation: fade-in-up var(--time-moment) ease-out;
+    animation-delay: var(--delay);
+    animation-fill-mode: both;
+}
+
+.year-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.year-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--surface-card);
+    border: 3px solid var(--cooper-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-stellar);
+    z-index: var(--z-molecule);
+}
+
+.year-icon .advanced-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--cooper-orange);
+}
+
+.year-title {
+    font-family: var(--font-display);
+    font-size: var(--text-galactic);
+    color: var(--text-primary);
+    background: var(--surface-glass);
+    padding: var(--space-molecule) var(--space-building);
+    border-radius: var(--radius-planet);
+    border: 1px solid var(--border-primary);
+    text-shadow: var(--glow-cooper);
+    backdrop-filter: blur(20px);
+}
+
+.year-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, var(--cooper-orange), transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: pulse-glow var(--time-decade) ease-in-out infinite;
+}
+
+.timeline-post {
+    position: relative;
+    margin: var(--space-building) 0;
+    opacity: 0;
+    animation: fade-in-up var(--time-moment) ease-out forwards;
+}
+
+.timeline-post:nth-child(even) {
+    transform: translateX(-50%);
+}
+
+.timeline-post:nth-child(odd) {
+    transform: translateX(50%);
+}
+
+.post-connector {
+    position: absolute;
+    top: var(--space-building);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-molecule);
+}
+
+.connector-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--surface-card);
+    border: 3px solid var(--cooper-orange);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: var(--shadow-stellar);
+}
+
+.connector-pulse {
+    position: absolute;
+    inset: -8px;
+    border: 1px solid var(--cooper-orange);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: connector-pulse var(--time-year) ease-in-out infinite;
+}
+
+@keyframes connector-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 0.2; }
+}
+
+.post-card {
+    background: var(--surface-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-planet);
+    padding: var(--space-building);
+    backdrop-filter: blur(20px);
+    transition: all var(--time-moment) var(--ease-time-dilation);
+    max-width: 400px;
+}
+
+.timeline-post:nth-child(even) .post-card {
+    margin-left: auto;
+    margin-right: var(--space-city);
+}
+
+.timeline-post:nth-child(odd) .post-card {
+    margin-left: var(--space-city);
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-blackhole);
+    border-color: var(--cooper-orange);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-organism);
+}
+
+.post-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--cooper-orange);
+    color: var(--star-white);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.post-date .month {
+    font-size: var(--text-atomic);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.post-date .day {
+    font-size: var(--text-molecular);
+}
+
+.post-category {
+    display: flex;
+    align-items: center;
+    gap: var(--space-photon);
+    background: var(--surface-card);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    font-size: var(--text-atomic);
+    color: var(--text-secondary);
+}
+
+.category-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--cooper-orange);
+}
+
+.post-title {
+    font-family: var(--font-display);
+    font-size: var(--text-human);
+    margin-bottom: var(--space-molecule);
+}
+
+.post-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color var(--time-moment);
+}
+
+.post-title a:hover {
+    color: var(--cooper-orange);
+    text-shadow: var(--glow-cooper);
+}
+
+.post-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-organism);
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-photon);
+    margin-bottom: var(--space-organism);
+}
+
+.post-tags .tag {
+    background: var(--surface-card);
+    color: var(--text-secondary);
+    padding: var(--space-photon) var(--space-molecule);
+    border-radius: var(--radius-asteroid);
+    font-size: var(--text-atomic);
+    text-decoration: none;
+    transition: all var(--time-moment);
+}
+
+.post-tags .tag:hover {
+    background: var(--cooper-orange);
+    color: var(--star-white);
+    transform: translateY(-2px);
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-photon);
+    color: var(--cooper-orange);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--time-moment);
+}
+
+.read-more-btn:hover {
+    transform: translateX(4px);
+}
+
+.btn-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--time-moment);
+}
+
+.read-more-btn:hover .btn-arrow {
+    transform: rotate(45deg);
+}
+
+/* Pagination */
+.archives-pagination {
+    padding: var(--space-building) 0;
+}
+
+.pagination-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-molecule);
+    padding: var(--space-organism) var(--space-building);
+    background: var(--surface-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-planet);
+    color: var(--text-primary);
+    text-decoration: none;
+    backdrop-filter: blur(20px);
+    transition: all var(--time-moment) var(--ease-time-dilation);
+}
+
+.pagination-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-stellar);
+    border-color: var(--cooper-orange);
+}
+
+.pagination-btn .btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.pagination-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-molecule);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.current-page {
+    color: var(--cooper-orange);
+    font-size: var(--text-human);
+}
+
+.page-separator {
+    color: var(--text-secondary);
+}
+
+.total-pages {
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .archives-stats {
+        gap: var(--space-building);
+    }
+    
+    .timeline-line {
+        left: var(--space-building);
+    }
+    
+    .timeline-post {
+        transform: none !important;
+        margin-left: calc(var(--space-building) * 2);
+    }
+    
+    .post-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: none;
+    }
+    
+    .year-marker {
+        margin-left: calc(var(--space-building) * 2);
+    }
+    
+    .year-icon {
+        left: calc(var(--space-building) * -1);
+    }
+    
+    .post-connector {
+        left: var(--space-building);
+    }
+    
+    .pagination-nav {
+        flex-direction: column;
+        gap: var(--space-organism);
+    }
+}
+</style>
+
+<script>
+// Archives page enhancements
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate timeline posts
+    const posts = document.querySelectorAll('.timeline-post');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+    
+    posts.forEach(post => {
+        observer.observe(post);
+    });
+    
+    // Add reading progress for long archives
+    const progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress';
+    progressBar.innerHTML = '<div class="progress-fill"></div>';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        const progressFill = document.querySelector('.progress-fill');
+        if (progressFill) {
+            progressFill.style.width = scrollPercent + '%';
+        }
+    });
+});
+</script>
+
+<style>
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--surface-card);
+    z-index: var(--z-universe);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cooper-orange), var(--wormhole-end));
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <!-- About Section -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Star Trek Blog</h3>
+                        <p class="footer-text">A futuristic blog with liquid glass design inspired by Star Trek</p>
+                        <div class="social-links">
+                            
+                                <a href="https://github.com/" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+                                    
+                                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                    
+                                </a>
+                            
+                                <a href="https://twitter.com/" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
+                                    
+                                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                        </svg>
+                                    
+                                </a>
+                            
+                                <a href="mailto:contact@example.com" class="social-link" target="_blank" rel="noopener" aria-label="Email">
+                                    
+                                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                            <polyline points="22,6 12,13 2,6"></polyline>
+                                        </svg>
+                                    
+                                </a>
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            
+                                <li>
+                                    <a href="/blog/" class="footer-link">
+                                        Home
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="/blog/archives" class="footer-link">
+                                        Archives
+                                    </a>
+                                </li>
+                            
+                                <li>
+                                    <a href="/blog/about" class="footer-link">
+                                        About
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <!-- Categories -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link" data-i18n="categories.mobile">Mobile Development</a></li>
+                            <li><a href="#" class="footer-link" data-i18n="categories.fullstack">Full Stack Development</a></li>
+                            <li><a href="#" class="footer-link" data-i18n="categories.cloud">Cloud & DevOps</a></li>
+                            <li><a href="#" class="footer-link" data-i18n="categories.ai">AI & Data Science</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div class="footer-section">
+                        <h3 class="footer-title" data-i18n="footer.contact.title">Get in Touch</h3>
+                        <p class="footer-text" data-i18n="footer.contact.desc">Have technical questions to discuss? Feel free to reach out and connect.</p>
+                        <a href="mailto:zhanghongjian@example.com" class="btn btn-secondary btn-sm">
+                            <span data-i18n="footer.contact.btn">Send Email</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        © 2025 Star Trek Blog. <span data-i18n="footer.copyright">Crafted with code and creativity.</span>
+                    </div>
+                    <div class="footer-meta">
+                        <span class="text-tertiary" data-i18n="footer.powered">Powered by technical passion and continuous learning</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Remove no-js class and add js class
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+        
+        // Remove loading class after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.remove('loading');
+        });
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        function updateTheme(isDark) {
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            updateTheme(savedTheme === 'dark');
+        } else {
+            updateTheme(prefersDark.matches);
+        }
+        
+        // Theme toggle click handler
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                updateTheme(currentTheme === 'light');
+            });
+        }
+        
+        // Listen for system theme changes
+        prefersDark.addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) {
+                updateTheme(e.matches);
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileNav.classList.toggle('hidden');
+                mobileMenuToggle.setAttribute('aria-expanded', 
+                    mobileNav.classList.contains('hidden') ? 'false' : 'true'
+                );
+            });
+        }
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+    </script>
+    
+    
+<script src="/blog/js/animations.js"></script>
+
+    
+<script src="/blog/js/i18n.js"></script>
+
+    
+<script src="/blog/js/advanced-theme.js"></script>
+
+</body>
+</html>

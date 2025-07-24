@@ -1,0 +1,383 @@
+/* ==========================================================================
+   Interstellar Design System - 星际穿越风格
+   ========================================================================== */
+
+:root {
+  /* ===== 星际穿越配色方案 ===== */
+  
+  /* 主要色彩 - 深空与温暖光芒 */
+  --space-black: #0A0A0A;
+  --deep-space: #1A1A2E;
+  --cosmic-blue: #16213E;
+  --nebula-purple: #2D1B69;
+  
+  /* 标志性橙色系 - 来自电影的温暖光线 */
+  --cooper-orange: #E94560;
+  --golden-hour: #F39C12;
+  --warm-amber: #FF8C42;
+  --sunset-glow: #FF6B35;
+  
+  /* 中性色 */
+  --star-white: #F8F9FA;
+  --cosmic-gray: #6C757D;
+  --space-dust: #ADB5BD;
+  --void-dark: #212529;
+  
+  /* ===== 渐变系统 ===== */
+  --space-gradient: linear-gradient(135deg, var(--space-black) 0%, var(--deep-space) 50%, var(--cosmic-blue) 100%);
+  --wormhole-gradient: radial-gradient(ellipse at center, var(--cooper-orange) 0%, var(--golden-hour) 30%, transparent 70%);
+  --time-dilation: linear-gradient(45deg, var(--cosmic-blue), var(--cooper-orange), var(--golden-hour));
+  --horizon-gradient: linear-gradient(180deg, transparent 0%, var(--deep-space) 50%, var(--space-black) 100%);
+  
+  /* ===== 字体系统 ===== */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', 'Futura', 'Century Gothic', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', monospace;
+  
+  /* 字体大小 - 基于宇宙尺度 */
+  --text-quantum: 10px;    /* 量子级 */
+  --text-atomic: 12px;     /* 原子级 */
+  --text-molecular: 14px;  /* 分子级 */
+  --text-cellular: 16px;   /* 细胞级 */
+  --text-human: 18px;      /* 人类级 */
+  --text-planetary: 24px;  /* 行星级 */
+  --text-stellar: 32px;    /* 恒星级 */
+  --text-galactic: 48px;   /* 银河级 */
+  --text-cosmic: 64px;     /* 宇宙级 */
+  
+  /* ===== 间距系统 - 基于光速和时间 ===== */
+  --space-quantum: 2px;    /* 量子间距 */
+  --space-photon: 4px;     /* 光子间距 */
+  --space-atom: 8px;       /* 原子间距 */
+  --space-molecule: 12px;  /* 分子间距 */
+  --space-cell: 16px;      /* 细胞间距 */
+  --space-organism: 24px;  /* 生物间距 */
+  --space-human: 32px;     /* 人类间距 */
+  --space-building: 48px;  /* 建筑间距 */
+  --space-city: 64px;      /* 城市间距 */
+  --space-continent: 96px; /* 大陆间距 */
+  --space-planet: 128px;   /* 行星间距 */
+  --space-solar: 192px;    /* 太阳系间距 */
+  --space-galaxy: 256px;   /* 银河间距 */
+  
+  /* ===== 时间动画系统 ===== */
+  --time-instant: 0.1s;    /* 瞬间 */
+  --time-moment: 0.2s;     /* 片刻 */
+  --time-second: 0.3s;     /* 秒 */
+  --time-minute: 0.5s;     /* 分钟感 */
+  --time-hour: 0.8s;       /* 小时感 */
+  --time-day: 1.2s;        /* 日感 */
+  --time-year: 2s;         /* 年感 */
+  --time-decade: 3s;       /* 十年感 */
+  --time-century: 5s;      /* 世纪感 */
+  
+  /* 缓动函数 - 模拟引力和时间扭曲 */
+  --ease-gravity: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-wormhole: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-time-dilation: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-slingshot: cubic-bezier(0.87, 0, 0.13, 1);
+  
+  /* ===== 阴影系统 - 模拟光的弯曲 ===== */
+  --shadow-photon: 0 1px 2px rgba(233, 69, 96, 0.1);
+  --shadow-light: 0 2px 8px rgba(233, 69, 96, 0.15);
+  --shadow-gravity: 0 4px 16px rgba(233, 69, 96, 0.2);
+  --shadow-stellar: 0 8px 32px rgba(233, 69, 96, 0.25);
+  --shadow-blackhole: 0 16px 64px rgba(233, 69, 96, 0.3);
+  
+  /* 光晕效果 */
+  --glow-cooper: 0 0 20px rgba(233, 69, 96, 0.6);
+  --glow-warm: 0 0 30px rgba(243, 156, 18, 0.5);
+  --glow-amber: 0 0 40px rgba(255, 140, 66, 0.4);
+  
+  /* ===== 边框半径 - 天体形状 ===== */
+  --radius-atom: 2px;
+  --radius-molecule: 4px;
+  --radius-cell: 8px;
+  --radius-organism: 12px;
+  --radius-planet: 16px;
+  --radius-star: 24px;
+  --radius-orbit: 50%;
+  
+  /* ===== Z轴层级 - 宇宙维度 ===== */
+  --z-surface: 1;
+  --z-atmosphere: 10;
+  --z-orbit: 20;
+  --z-moon: 30;
+  --z-planet: 40;
+  --z-star: 50;
+  --z-galaxy: 60;
+  --z-universe: 70;
+}
+
+/* ===== 深色主题 (默认 - 宇宙是黑暗的) ===== */
+:root {
+  --bg-primary: var(--space-black);
+  --bg-secondary: var(--deep-space);
+  --bg-tertiary: var(--cosmic-blue);
+  --bg-card: rgba(26, 26, 46, 0.8);
+  --bg-glass: rgba(22, 33, 62, 0.6);
+  
+  --text-primary: var(--star-white);
+  --text-secondary: var(--space-dust);
+  --text-tertiary: var(--cosmic-gray);
+  --text-accent: var(--cooper-orange);
+  
+  --border-primary: rgba(233, 69, 96, 0.2);
+  --border-secondary: rgba(108, 117, 125, 0.1);
+  
+  --surface-glass: rgba(26, 26, 46, 0.8);
+  --surface-card: rgba(22, 33, 62, 0.9);
+}
+
+/* ===== 浅色主题 (可选 - 日间星球表面) ===== */
+[data-theme="light"] {
+  --bg-primary: #F8F9FA;
+  --bg-secondary: #E9ECEF;
+  --bg-tertiary: #DEE2E6;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-glass: rgba(248, 249, 250, 0.8);
+  
+  --text-primary: var(--void-dark);
+  --text-secondary: var(--cosmic-gray);
+  --text-tertiary: var(--space-dust);
+  --text-accent: var(--cooper-orange);
+  
+  --border-primary: rgba(233, 69, 96, 0.3);
+  --border-secondary: rgba(108, 117, 125, 0.2);
+  
+  --surface-glass: rgba(255, 255, 255, 0.8);
+  --surface-card: rgba(248, 249, 250, 0.95);
+}
+
+/* ==========================================================================
+   基础重置和全局样式
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-cellular);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  overflow-x: hidden;
+  transition: background-color var(--time-moment) var(--ease-time-dilation);
+}
+
+/* ==========================================================================
+   字体加载优化
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ==========================================================================
+   宇宙背景系统
+   ========================================================================== */
+
+.cosmic-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--space-gradient);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(243, 156, 18, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 10%, rgba(22, 33, 62, 0.3) 0%, transparent 50%);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: 
+      radial-gradient(2px 2px at 20% 30%, var(--star-white), transparent),
+      radial-gradient(2px 2px at 40% 70%, var(--star-white), transparent),
+      radial-gradient(1px 1px at 90% 40%, var(--star-white), transparent),
+      radial-gradient(1px 1px at 50% 60%, var(--star-white), transparent),
+      radial-gradient(2px 2px at 90% 90%, var(--star-white), transparent),
+      radial-gradient(1px 1px at 10% 10%, var(--star-white), transparent);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px, 450px 450px, 200px 200px;
+    animation: cosmos-drift var(--time-century) linear infinite;
+    opacity: 0.6;
+  }
+}
+
+@keyframes cosmos-drift {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(-50px) translateY(-50px); }
+}
+
+/* ==========================================================================
+   排版系统
+   ========================================================================== */
+
+.text-quantum { font-size: var(--text-quantum); }
+.text-atomic { font-size: var(--text-atomic); }
+.text-molecular { font-size: var(--text-molecular); }
+.text-cellular { font-size: var(--text-cellular); }
+.text-human { font-size: var(--text-human); }
+.text-planetary { font-size: var(--text-planetary); }
+.text-stellar { font-size: var(--text-stellar); }
+.text-galactic { font-size: var(--text-galactic); }
+.text-cosmic { font-size: var(--text-cosmic); }
+
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* 文本颜色 */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-accent { color: var(--text-accent); }
+.text-cooper { color: var(--cooper-orange); }
+.text-golden { color: var(--golden-hour); }
+
+/* 发光文本效果 */
+.text-glow-cooper {
+  color: var(--cooper-orange);
+  text-shadow: var(--glow-cooper);
+}
+
+.text-glow-warm {
+  color: var(--golden-hour);
+  text-shadow: var(--glow-warm);
+}
+
+.text-glow-amber {
+  color: var(--warm-amber);
+  text-shadow: var(--glow-amber);
+}
+
+/* ==========================================================================
+   间距实用类
+   ========================================================================== */
+
+.space-quantum { margin: var(--space-quantum); }
+.space-photon { margin: var(--space-photon); }
+.space-atom { margin: var(--space-atom); }
+.space-molecule { margin: var(--space-molecule); }
+.space-cell { margin: var(--space-cell); }
+.space-organism { margin: var(--space-organism); }
+.space-human { margin: var(--space-human); }
+.space-building { margin: var(--space-building); }
+.space-city { margin: var(--space-city); }
+.space-continent { margin: var(--space-continent); }
+.space-planet { margin: var(--space-planet); }
+
+/* ==========================================================================
+   显示和布局实用类
+   ========================================================================== */
+
+.hidden { display: none !important; }
+.block { display: block !important; }
+.flex { display: flex !important; }
+.grid { display: grid !important; }
+
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+/* ==========================================================================
+   边框半径实用类
+   ========================================================================== */
+
+.rounded-atom { border-radius: var(--radius-atom); }
+.rounded-molecule { border-radius: var(--radius-molecule); }
+.rounded-cell { border-radius: var(--radius-cell); }
+.rounded-organism { border-radius: var(--radius-organism); }
+.rounded-planet { border-radius: var(--radius-planet); }
+.rounded-star { border-radius: var(--radius-star); }
+.rounded-orbit { border-radius: var(--radius-orbit); }
+
+/* ==========================================================================
+   阴影实用类
+   ========================================================================== */
+
+.shadow-photon { box-shadow: var(--shadow-photon); }
+.shadow-light { box-shadow: var(--shadow-light); }
+.shadow-gravity { box-shadow: var(--shadow-gravity); }
+.shadow-stellar { box-shadow: var(--shadow-stellar); }
+.shadow-blackhole { box-shadow: var(--shadow-blackhole); }
+
+/* ==========================================================================
+   过渡和动画实用类
+   ========================================================================== */
+
+.transition-instant { transition: all var(--time-instant) var(--ease-gravity); }
+.transition-moment { transition: all var(--time-moment) var(--ease-gravity); }
+.transition-second { transition: all var(--time-second) var(--ease-time-dilation); }
+
+.ease-gravity { transition-timing-function: var(--ease-gravity); }
+.ease-wormhole { transition-timing-function: var(--ease-wormhole); }
+.ease-time-dilation { transition-timing-function: var(--ease-time-dilation); }
+.ease-slingshot { transition-timing-function: var(--ease-slingshot); }
+
+/* ==========================================================================
+   响应式断点
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-organism);
+}
+
+@media (min-width: 640px) {
+  .container { padding: 0 var(--space-human); }
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 var(--space-building); }
+}
+
+@media (min-width: 1024px) {
+  .container { padding: 0 var(--space-city); }
+}
+
+/* ==========================================================================
+   Z-Index 实用类
+   ========================================================================== */
+
+.z-surface { z-index: var(--z-surface); }
+.z-atmosphere { z-index: var(--z-atmosphere); }
+.z-orbit { z-index: var(--z-orbit); }
+.z-moon { z-index: var(--z-moon); }
+.z-planet { z-index: var(--z-planet); }
+.z-star { z-index: var(--z-star); }
+.z-galaxy { z-index: var(--z-galaxy); }
+.z-universe { z-index: var(--z-universe); }
